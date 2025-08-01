@@ -1,9 +1,9 @@
 {
-  "name": "JAWAD-MD",
-  "description": "I am JAWAD-MD WhatsApp MultiDevice Bot built in NodeJs to enhance the experience.",
+  "name": "NjabuloJb-elite",
+  "description": "I am NjabuloJb WhatsApp MultiDevice Bot built in NodeJs to enhance the experience.",
   "logo": "https://files.catbox.moe/neni8p.jpg",
-  "keywords": ["JAWAD-MD"],
-  "repository": "https://github.com/JawadTechXD/JAWAD-MD",
+  "keywords": ["NjabuloJb-elite"],
+  "repository": "https://github.com/NjabuloJ/NjabuloJb-elite",
   "stack": "container",
   "env": { 
       "SESSION_ID": {
@@ -19,7 +19,7 @@
     "BOT_NAME": {
       "description": "change bot name what you want!",
       "required": false,
-      "value": "JAWAD-MD"
+      "value": "NjabuloJb-elite"
     },
     "MENU_IMAGE": {
       "description": "change menu image if want otherwise use default",
