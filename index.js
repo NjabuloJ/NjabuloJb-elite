@@ -114,24 +114,23 @@ Matrix.ev.on('connection.update', (update) => {
         }
     } else if (connection === 'open') {
         if (initialConnection) {
-            console.log(chalk.green("Connected Successfully JAWAD MD 🤍"));
+            console.log(chalk.green("Connected Successfully NjabuloJb-elite 🤍"));
             Matrix.sendMessage(Matrix.user.id, { 
                 image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
-                caption: `*Hello there JAWAD-MD User! 👋🏻* 
-
-> Simple, Straightforward, But Loaded With Features 🎊. Meet JAWAD-MD WhatsApp Bot.
-
-*Thanks for using JAWAD-MD 🚩* 
-
-> Join WhatsApp Channel: ⤵️  
-https://whatsapp.com/channel/0029VatOy2EAzNc2WcShQw1j
-
-- *YOUR PREFIX:* = ${prefix}
-
-Don't forget to give a star to the repo ⬇️  
-https://github.com/JawadTechXD/JAWAD-MD
-
-> © Powered BY JawadTechX 🖤`
+                caption: `┏──────────────⊷
+┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
+┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
+┗──────────────⊷
+┏           *【 device online 】⇳︎*
+- . ①  *ping*
+- . ②  *ᴍᴇɴᴜ*
+- . ③  *alive*
+- . ④  *update*
+- . ⑤  *uptime*
+┗
+┏──────────────⊷
+┊ *[Njabulo Jb connected]*
+┗──────────────⊷`
             });
             initialConnection = false;
         } else {
