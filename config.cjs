@@ -21,7 +21,7 @@ const config = {
   REJECT_CALL: process.env.REJECT_CALL !== undefined ? process.env.REJECT_CALL === 'true' : false, 
   NOT_ALLOW: process.env.NOT_ALLOW !== undefined ? process.env.NOT_ALLOW === 'true' : true,
   MODE: process.env.MODE || "public",
-  BOT_NAME: process.env.BOT_NAME || "JAWAD-MD",
+  BOT_NAME: process.env.BOT_NAME || "NjabuloJb-elite",
   MENU_IMAGE: process.env.MENU_IMAGE || "https://files.catbox.moe/7l1tt5.jpg",
   DESCRIPTION: process.env.DESCRIPTION || "© ᴘᴏᴡᴇʀᴇᴅ ʙʏ Jᴀᴡᴀᴅ TᴇᴄʜX",
   OWNER_NAME: process.env.OWNER_NAME || "JawadTechX",
