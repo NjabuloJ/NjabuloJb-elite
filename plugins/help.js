@@ -318,22 +318,10 @@ let mode = ethix.public ? 'public' : 'private';
 ╰━━━━━━━━━━━━━━━⪼
    `;
         let fgg = {
-            key: {
-                fromMe: false,
-                participant: `0@s.whatsapp.net`,
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                contactMessage: {
-                    displayName: `Ethix-MD`,
-                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:'Ethix-MD'\nitem1.TEL;waid=${
-                        m.sender.split("@")[0]
-                    }:${
-                        m.sender.split("@")[0]
-                    }\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-                }
-            }
-        };
+         }, {
+  quoted: m
+});
+  }
        let { key } = await Matrix.sendMessage(m.from, {
   image: fs.readFileSync('./src/ethix.jpg'), 
   caption: str, 
