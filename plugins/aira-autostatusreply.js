@@ -65,7 +65,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, { 
-        text: `*${toFancyFont("Get lost, poser! Only Njabulo Jb boss can fuck with status replies!")}`,
+        text: `*${toFancyFont("Get lost, poser! Only Njabulo Jb boss can fuck with status replies!*")}`,
         ...messageOptions 
       }, { quoted: {
             key: {
@@ -98,7 +98,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("Yo, braindead, tell Njabulo Jb on or off! Don't just stare!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`,
+        text: `*${toFancyFont("*Yo, braindead, tell Njabulo Jb on or off! Don't just stare!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`,
         ...messageOptions 
       }, { quoted: {
             key: {
@@ -131,7 +131,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("What's this garbage? Njabulo Jb only takes on or off, clown!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`, 
+        text: `*${toFancyFont("What's this garbage? Njabulo Jb only takes on or off, clown!*")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`, 
         ...messageOptions
        }, { quoted: {
             key: {
