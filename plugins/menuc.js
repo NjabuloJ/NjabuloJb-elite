@@ -92,16 +92,10 @@ const menu = async (m, Matrix) => {
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Download open` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` Group        open ` }, type: 1 },
-          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` Fun            open` }, type: 1 },
-          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: ` Owner       open ` }, type: 1 },
-          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: ` Ai               open ` }, type: 1 },
-          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: ` Anime.      open ` }, type: 1 },
-          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: ` Converter open ` }, type: 1 },
-          { buttonId: `${prefix}other-menu`, buttonText: { displayText: ` Other` }, type: 1 },
-          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: ` Reactions open` }, type: 1 },
-          { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Family Main office ` }, type: 1 }
+          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` plugins` }, type: 1 },
+          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` owner number` }, type: 1 },
+          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` license W:bot` }, type: 1 },
+          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
         ],
         contextInfo: {
           mentionedJid: [m.sender],
