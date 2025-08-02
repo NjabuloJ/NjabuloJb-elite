@@ -64,11 +64,22 @@ const autoreactCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("Get the fuck outta here, wannabe! Only Toxic-MD’s boss runs this show!")}*`,
+        text: `*${toFancyFont("Get the fuck outta here, wannabe! Only NjabuloJb’s boss runs this show!")}*`,
         ...messageOptions,
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
-
     if (!text) {
       const buttons = [
         {
@@ -89,9 +100,21 @@ const autoreactCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("Yo, dipshit, tell Toxic-MD on or off! Don’t just stand there!")}*`,
+        text: `*${toFancyFont("Yo, dipshit, tell NjabuloJb on or off! Don’t just stand there!")}*`,
         ...messageOptions,
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!["on", "off"].includes(text)) {
@@ -114,9 +137,21 @@ const autoreactCommand = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("What’s this bullshit? Toxic-MD only takes on or off, you moron!")}*`,
+        text: `*${toFancyFont("What’s this bullshit? NjabuloJb only takes on or off, you moron!")}*`,
         ...messageOptions,
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     config.AUTO_REACT = text === "on";
@@ -126,8 +161,20 @@ const autoreactCommand = async (m, Matrix) => {
     } catch (error) {
       console.error(`Error saving config: ${error.message}`);
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("Toxic-MD choked tryin’ to save that, fam! Server’s actin’ like a bitch!")}*`,
-      }, { quoted: m });
+        text: `*${toFancyFont("NjabuloJb choked tryin’ to save that, fam! Server’s actin’ like a bitch!")}*`,
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const buttons = [
@@ -144,9 +191,21 @@ const autoreactCommand = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from, {
-      text: `*${toFancyFont(`Toxic-MD auto-react flipped to ${text}! You’re ownin’ this game, boss!`)}*`,
+      text: `*${toFancyFont(`Njabulo Jb auto-react flipped to ${text}! You’re ownin’ this game, boss!`)}*`,
       ...messageOptions,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   } catch (error) {
     console.error(`❌ Autoreact error: ${error.message}`);
     const buttons = [
@@ -163,9 +222,21 @@ const autoreactCommand = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from, {
-      text: `*${toFancyFont("Toxic-MD fucked up somewhere, fam! Smash it again!")}*`,
+      text: `*${toFancyFont("Njabulo Jb fucked up somewhere, fam! Smash it again!")}*`,
       ...messageOptions,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 };
 
