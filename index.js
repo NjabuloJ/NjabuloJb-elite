@@ -130,7 +130,16 @@ Matrix.ev.on('connection.update', (update) => {
 ┗
 ┏──────────────⊷
 ┊ *[Njabulo Jb connected]*
-┗──────────────⊷`
+┗──────────────⊷`,
+            contextInfo: {
+              externalAdReply: {
+                showAdAttribution: false,
+                title: "Toxic-MD",
+                body: `Bot initialized successfully.`,
+                sourceUrl: `https://github.com/xhclintohn/Toxic-MD`,
+                mediaType: 1,
+                renderLargerThumbnail: true,
+
             }, { quoted: {
             key: {
                 fromMe: false,
