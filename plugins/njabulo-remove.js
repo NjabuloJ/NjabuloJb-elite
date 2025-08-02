@@ -62,11 +62,22 @@ const kick = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("THIS COMMAND CAN ONLY BE USED IN GROUPS")}`,
+        text: `*${toFancyFont("THIS COMMAND CAN ONLY BE USED IN GROUPS*")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
-
     const groupMetadata = await Matrix.groupMetadata(m.from);
     const participants = groupMetadata.participants;
     const botAdmin = participants.find((p) => p.id === botNumber)?.admin;
@@ -81,11 +92,22 @@ const kick = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("BOT NEEDS ADMIN POWERS TO KICK")}`,
+        text: `*${toFancyFont("BOT NEEDS ADMIN POWERS TO KICK*")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
-
     if (!senderAdmin) {
       const buttons = [createButton(`.menu`, "Menu")];
       const messageOptions = {
@@ -95,9 +117,21 @@ const kick = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("YOU ARE NOT AN ADMIN")}`,
+        text: `*${toFancyFont("YOU ARE NOT AN ADMIN*")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!m.mentionedJid) m.mentionedJid = [];
@@ -118,9 +152,21 @@ const kick = async (m, Matrix) => {
         },
       };
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("TAG OR QUOTE SOMEONE TO KICK")}`,
+        text: `*${toFancyFont("TAG OR QUOTE SOMEONE TO KICK*")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const validUsers = users.filter((user) => {
@@ -142,7 +188,19 @@ const kick = async (m, Matrix) => {
       return Matrix.sendMessage(m.from, {
         text: `*${toFancyFont("NO VALID USERS FOUND")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     await Matrix.groupParticipantsUpdate(m.from, validUsers, "remove");
@@ -170,7 +228,19 @@ const kick = async (m, Matrix) => {
     await Matrix.sendMessage(m.from, {
       text: `*${toFancyFont("AN ERROR OCCURRED WHILE KICKING")}`,
       ...messageOptions
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 };
 
