@@ -108,29 +108,27 @@ const menu = async (m, Matrix) => {
     // Handle main menu
     if (validCommands.includes(cmd)) {
       const mainMenu = `
-*①• ${toFancyFont("njabulo jb")} (Command Menu ⚠)*
-*②• ${toFancyFont("Bot")}*: ${toFancyFont("*(aira)*")}
-*④• ${toFancyFont("Date")}*: ${xdate}
-*⑤• ${toFancyFont("Time")}*: ${xtime} 
-*⑥• ${toFancyFont("Prefix")}: [ ${prefix} ]*
-*⑦• ${toFancyFont("Mode")}*: ${mode}
-*⑧• ${toFancyFont("version")}: (000 V1)*
-
- ╭──〔 *ɴᴊᴀʙᴜʟᴏ ᴊʙ* 〕
-│
-│ *➊• ${toFancyFont("download-menu")}*
-│ *➋• ${toFancyFont("converter-menu")}*
-│ *➌• ${toFancyFont("ai-menu")}*
-│ *➍• ${toFancyFont("tools-menu")}*
-│ *➎• ${toFancyFont("group-menu")}*
-│ *➏• ${toFancyFont("search-menu")}*
-│ *➐• ${toFancyFont("main-menu")}*
-│ *➑• ${toFancyFont("owner-menu")}*
-│ *➒• ${toFancyFont("stalk-menu")}*
-│
-╰──〔 *ɴᴊᴀʙᴜʟᴏ ᴊʙ* 〕
-
-*${pushwish} @*${m.pushName}*! 
+┏──────────────⊷
+┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
+┊ ᴍᴏᴅᴇ : *[ ${mode} ]*
+┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
+┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
+┗──────────────⊷
+┏           *【 ᴍᴇɴᴜ ʟɪsᴛ 】⇳︎*
+- . ①  *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*
+- . ②  *ɢʀᴏᴜᴘ ᴍᴇɴᴜ*
+- . ③  *ғᴜɴ ᴍᴇɴᴜ*
+- . ④  *ᴏᴡɴᴇʀ ᴍᴇɴᴜ*
+- . ⑤  *ᴀɪ ᴍᴇɴᴜ*
+- . ⑥  *ᴀɴɪᴍᴇ ᴍᴇɴᴜ*
+- . ⑦  *ᴄᴏɴᴠᴇʀᴛ ᴍᴇɴᴜ*
+- . ⑧  *ᴏᴛʜᴇʀ ᴍᴇɴᴜ*
+- . ⑨  *ʀᴇᴀᴄᴛɪᴏɴs ᴍᴇɴᴜ*
+- . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
+┗
+┏──────────────⊷
+┊*${pushwish}*
+┗──────────────⊷
 
 > Tap a button to select a menu category:
 `;
