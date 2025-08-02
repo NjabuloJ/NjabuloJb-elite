@@ -60,7 +60,22 @@ const gcEvent = async (m, Matrix) => {
             mentionedJid: [m.sender],
           },
         };
-        return Matrix.sendMessage(m.from, { text: `*${toFancyFont("This ain’t for lone wolves, fam! Use in a group!")}`, ...messageOptions }, { quoted: m });
+        return Matrix.sendMessage(m.from, {
+          text: `*${toFancyFont("This ain’t for lone wolves, fam! Use in a group!")}`,
+          ...messageOptions
+         }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
 
       const groupMetadata = await Matrix.groupMetadata(m.from);
@@ -102,7 +117,21 @@ const gcEvent = async (m, Matrix) => {
             mentionedJid: [m.sender],
           },
         };
-        return Matrix.sendMessage(m.from, { text: `*${toFancyFont("You ain’t an admin, bruh! Step up or step out!")}`, ...messageOptions }, { quoted: m });
+        return Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("You ain’t an admin, bruh! Step up or step out!")}`, ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
 
       let responseMessage;
@@ -130,7 +159,22 @@ const gcEvent = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      await Matrix.sendMessage(m.from, { text: responseMessage, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, {
+        text: responseMessage,
+        ...messageOptions
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
   } catch (error) {
     console.error(`❌ Welcome error: ${error.message}`);
