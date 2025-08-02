@@ -66,7 +66,7 @@ const autoreadCommand = async (m, Matrix) => {
     const buttons = [
       {
         buttonId: `.autoread on`,
-        buttonText: { displayText: `💬${toFancyFont("on")}` },
+        buttonText: { displayText: `"on"},
         type: 1,
       },
       {
