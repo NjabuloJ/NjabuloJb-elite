@@ -116,7 +116,7 @@ Matrix.ev.on('connection.update', (update) => {
         if (initialConnection) {
             console.log(chalk.green("Connected Successfully NjabuloJb-elite 🤍"));
             Matrix.sendMessage(Matrix.user.id, { 
-                image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
+                image: { url: "https://files.catbox.moe/ozy8qg.jpeg" }, 
                 caption: `┏──────────────⊷
 ┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
 ┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
@@ -130,16 +130,7 @@ Matrix.ev.on('connection.update', (update) => {
 ┗
 ┏──────────────⊷
 ┊ *[Njabulo Jb connected]*
-┗──────────────⊷`,
-            contextInfo: {
-              externalAdReply: {
-                showAdAttribution: false,
-                title: "Toxic-MD",
-                body: `Bot initialized successfully.`,
-                sourceUrl: `https://github.com/xhclintohn/Toxic-MD`,
-                mediaType: 1,
-                renderLargerThumbnail: true,
-
+┗──────────────⊷`
             }, { quoted: {
             key: {
                 fromMe: false,
