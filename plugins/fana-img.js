@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '../config.cjs';
-import pkg, { prepareWAMessageMedia } from "baileys-pro";
+import pkg, { prepareWAMessageMedia } from "whiskeysockets/baileys";
 const { generateWAMessageFromContent, proto } = pkg;
 
 function toFancyFont(text, isUpperCase = false) {
@@ -65,7 +65,22 @@ const imageCommand = async (m, sock) => {
           mentionedJid: [m.sender],
         },
       };
-      return sock.sendMessage(m.from, { text: `*${toFancyFont("Please provide some text, Example usage: " + prefix + cmd + " black cats")}`, ...messageOptions });
+      return sock.sendMessage(m.from, { 
+      text: `*${toFancyFont("Please provide some text, Example usage: " + prefix + cmd + " black cats*")}`,
+        ...messageOptions 
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
   
     if (!query && m.quoted && m.quoted.text) {
@@ -89,7 +104,22 @@ const imageCommand = async (m, sock) => {
           mentionedJid: [m.sender],
         },
       };
-      await sock.sendMessage(m.from, { text: `*${toFancyFont("Please wait...")}`, ...messageOptions });
+      await sock.sendMessage(m.from, {
+        text: `*${toFancyFont("Please wait...*")}`
+        , ...messageOptions 
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       const images = [];
 
@@ -107,8 +137,23 @@ const imageCommand = async (m, sock) => {
 
       for (let i = 0; i < images.length; i++) {
         await sleep(500);
-        await sock.sendMessage(m.from, { image: images[i], caption: '' }, { quoted: m });
-      }
+        await sock.sendMessage(m.from, {
+          image: images[i],
+          caption: 'njabulo', 
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+   }
       await m.React("✅");
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -126,8 +171,22 @@ const imageCommand = async (m, sock) => {
           mentionedJid: [m.sender],
         },
       };
-      await sock.sendMessage(m.from, { text: `*${toFancyFont("Oops! Something went wrong while generating images. Please try again later.")}`, ...messageOptions });
-    }
+      await sock.sendMessage(m.from, { 
+      text: `*${toFancyFont("Oops! Something went wrong while generating images. Please try again later.*")}`, 
+      ...messageOptions 
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 };
 
