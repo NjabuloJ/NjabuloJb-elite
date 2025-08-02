@@ -29,7 +29,7 @@
     "DESCRIPTION": {
       "description": "add caption for menu and etc",
       "required": false,
-      "value": "© ᴘᴏᴡᴇʀᴇᴅ ʙʏ Jᴀᴡᴀᴅ TᴇᴄʜX"
+      "value": "> ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ"
     },
     "ANTI_DELETE": {
       "description": "set path for antidelete for same chat set to same",
@@ -55,17 +55,17 @@
     "STATUS_READ_MSG": {
       "description": "set your status reply message",
       "required": false,
-      "value": "*Status Seen By JAWAD-MD 👻🤍*"
+      "value": "*nice you status 😊*"
     },
     "OWNER_NAME": {
       "description": "set owner name",
       "required": false,
-      "value": "JAWAD-MD"
+      "value": "Njabulo Jb"
     },
     "OWNER_NUMBER": {
       "description": "set your owner number",
       "required": false,
-      "value": "923427582273"
+      "value": "26777821911"
     },
     "AUTO_READ": {
       "description": "make it true if you want bot to read message",
