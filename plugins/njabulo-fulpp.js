@@ -1,7 +1,6 @@
-import { downloadMediaMessage } from "@whiskeysockets/baileys";
 import Jimp from "jimp";
 import config from "../config.cjs";
-import pkg, { prepareWAMessageMedia } from "baileys-pro";
+import pkg, { prepareWAMessageMedia } from "@whiskeysockets/baileys"
 const { generateWAMessageFromContent, proto } = pkg;
 
 function toFancyFont(text, isUpperCase = false) {
