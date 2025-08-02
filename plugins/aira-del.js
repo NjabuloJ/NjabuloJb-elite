@@ -123,6 +123,7 @@ const deleteMessage = async (m, gss) => {
                 }
             }
         } });
+    }
   } catch (error) {
     console.error('Error deleting message:', error);
     const buttons = [
