@@ -66,12 +66,12 @@ const autorecordingCommand = async (m, Matrix) => {
     const buttons = [
       {
         buttonId: `.autorecording on`,
-        buttonText: { displayText: `${toFancyFont("on")}` },
+        buttonText: { displayText: `${toFancyFont("autorecording on")}` },
         type: 1,
       },
       {
         buttonId: `.autorecording off`,
-        buttonText: { displayText: `${toFancyFont("off")}` },
+        buttonText: { displayText: `${toFancyFont("autorecording off")}` },
         type: 1,
       },
     ];
