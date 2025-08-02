@@ -64,7 +64,22 @@ const autostatusreplyCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Get lost, poser! Only Njabulo Jb boss can fuck with status replies!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("Get lost, poser! Only Njabulo Jb boss can fuck with status replies!")}`,
+        ...messageOptions 
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!text) {
@@ -82,7 +97,22 @@ const autostatusreplyCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, braindead, tell Njabulo Jb on or off! Don't just stare!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("Yo, braindead, tell Njabulo Jb on or off! Don't just stare!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`,
+        ...messageOptions 
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!["on", "off"].includes(text)) {
@@ -100,7 +130,22 @@ const autostatusreplyCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("What's this garbage? Njabulo Jb only takes on or off, clown!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("What's this garbage? Njabulo Jb only takes on or off, clown!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     config.AUTO_STATUS_REPLY = text === "on";
@@ -140,7 +185,23 @@ const autostatusreplyCommand = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb auto-status reply flipped to " + text + "! You're runnin' this, boss!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, { 
+      text: `*${toFancyFont("Njabulo Jb auto-status reply flipped to " + text + "! You're runnin' this, boss!")}`,
+      ...messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+  }
   } catch (error) {
     console.error(`❌ Autostatusreply error: ${error.message}`);
     const buttons = [
