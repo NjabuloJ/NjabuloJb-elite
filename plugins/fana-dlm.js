@@ -64,7 +64,21 @@ const imdb = async (m, gss) => {
           mentionedJid: [m.sender],
         },
       };
-      return gss.sendMessage(m.from, { text: `*${toFancyFont("Give me a series or movie name")}`, ...messageOptions });
+      return gss.sendMessage(m.from, { text: `*${toFancyFont("Give me a series or movie name")}`, 
+       ...messageOptions
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${encodeURIComponent(text)}&plot=full`);
@@ -85,7 +99,22 @@ const imdb = async (m, gss) => {
           mentionedJid: [m.sender],
         },
       };
-      return gss.sendMessage(m.from, { text: `*${toFancyFont("Movie or series not found")}`, ...messageOptions });
+      return gss.sendMessage(m.from, { 
+        text: `*${toFancyFont("Movie or series not found")}`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     imdbt += `*${toFancyFont("IMDB SEARCH")}*\n\n`;
@@ -127,9 +156,19 @@ const imdb = async (m, gss) => {
       },
       caption: imdbt,
       ...messageOptions,
-    }, {
-      quoted: m,
-    });
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   } catch (error) {
     console.error('Error:', error);
     const buttons = [
