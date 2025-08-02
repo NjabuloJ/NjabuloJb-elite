@@ -71,7 +71,22 @@ const shazam = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, Njabulo Jb needs a quoted audio or video to ID, fam!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("Yo, Njabulo Jb needs a quoted audio or video to ID, fam!*")}`,
+        ...messageOptions
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     try {
@@ -93,7 +108,22 @@ const shazam = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njbulo Jb sniffin’ out that track, hold up...")}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("Njbulo Jb sniffin’ out that track, hold up...*")}`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       const res = await acr.identify(fs.readFileSync(filePath));
       const { code, msg } = res.status;
@@ -139,7 +169,22 @@ const shazam = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Aira couldn’t ID that track, fam! Try another!")}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("Aira couldn’t ID that track, fam! Try another!*")}`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
   } catch (error) {
     console.error(`❌ Shazam error: ${error.message}`);
@@ -157,7 +202,22 @@ const shazam = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo jb hit a glitch, fam! Retry that jam!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, {
+      text: `*${toFancyFont("Njabulo jb hit a glitch, fam! Retry that jam!*")}`,
+      ...messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 };
 
