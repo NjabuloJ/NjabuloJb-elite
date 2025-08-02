@@ -65,13 +65,13 @@ const autotypingCommand = async (m, Matrix) => {
     let responseMessage;
     const buttons = [
       {
-        buttonId: `.autotyping ${toFancyFont("on")}`,
-        buttonText: { displayText: `${toFancyFont("on")}` },
+        buttonId: `.autotyping on`,
+        buttonText: { displayText: `${toFancyFont("autotyping on")}` },
         type: 1,
       },
       {
-        buttonId: `.autotyping ${toFancyFont("off")}`,
-        buttonText: { displayText: `${toFancyFont("off")}` },
+        buttonId: `.autotyping off`,
+        buttonText: { displayText: `${toFancyFont("autotyping off")}` },
         type: 1,
       },
     ];
