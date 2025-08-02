@@ -69,7 +69,8 @@ const ping = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from,{ 
-      text, ...messageOptions 
+      text, 
+      ...messageOptions 
           }, { quoted: {
             key: {
                 fromMe: false,
