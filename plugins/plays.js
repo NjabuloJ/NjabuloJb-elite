@@ -93,6 +93,7 @@ const play = async (m, Matrix) => {
                 }
             }
         } });
+     }
 
       // Search YouTube for song info
       const searchResults = await ytSearch(searchQuery);
@@ -282,7 +283,7 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
                 }
             }
         } });
-
+      }
       const buttons = [
         {
           buttonId: `.menu`,
