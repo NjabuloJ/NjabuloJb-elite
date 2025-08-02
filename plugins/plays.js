@@ -168,27 +168,27 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           const buttons = [
           {
             buttonId: `.img ${args.join(" ")}`,
-            buttonText: { displayText: `🖼️ ${toFancyFont("img")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach img")}` },
             type: 1,
           },
           {
             buttonId: `.lyrics ${args.join(" ")}`,
-            buttonText: { displayText: `📃 ${toFancyFont("Lyrics")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach Lyrics")}` },
             type: 1,
           },
           {
             buttonId: `.yts ${args.join(" ")}`,
-            buttonText: { displayText: `📃 ${toFancyFont("Yts")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach Yts")}` },
             type: 1,
           },
           {
             buttonId: `.video ${args.join(" ")}`,
-            buttonText: { displayText: `🎥 ${toFancyFont("video")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach video")}` },
             type: 1,
           },
             {
             buttonId: `.song ${args.join(" ")}`,
-            buttonText: { displayText: `🎧${toFancyFont("get")} ${toFancyFont("song")}` },
+            buttonText: { displayText: ` ${toFancyFont("getsong")}` },
             type: 1,
           },
         ];
