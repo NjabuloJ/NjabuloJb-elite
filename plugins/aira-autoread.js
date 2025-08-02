@@ -49,7 +49,19 @@ const autoreadCommand = async (m, Matrix) => {
     if (!isCreator) return Matrix.sendMessage(m.from, {
       text: "*ᴛʜɪs ɪs ᴀɴ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ*",
       viewOnce: true,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     let responseMessage;
     const buttons = [
       {
@@ -77,10 +89,20 @@ const autoreadCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autoread ${toFancyFont("on")}\`: Enable Auto-Read\n- \`${prefix}autoread ${toFancyFont("off")}\`: Disable Auto-Read`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
-    }
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+      }
 
     if (text === 'on') {
       config.AUTO_READ = true;
@@ -101,9 +123,19 @@ const autoreadCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autoread ${toFancyFont("on")}\`: Enable Auto-Read\n- \`${prefix}autoread ${toFancyFont("off")}\`: Disable Auto-Read`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
+         }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     try {
