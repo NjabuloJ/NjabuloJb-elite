@@ -62,7 +62,22 @@ const gemini = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Please give me a prompt")}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("Please give me a prompt")}`,
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       return;
     }
 
@@ -89,7 +104,22 @@ const gemini = async (m, Matrix) => {
             mentionedJid: [m.sender],
           },
         };
-        await Matrix.sendMessage(m.from, { text: answer, ...messageOptions }, { quoted: m });
+        await Matrix.sendMessage(m.from, { 
+          text: answer, 
+          ...messageOptions
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
         await m.React("✅");
       } else {
         throw new Error('Invalid response from the API.');
@@ -109,7 +139,22 @@ const gemini = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Something went wrong")}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("Something went wrong")}`, 
+        ...messageOptions
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       console.error('Error: ', err);
       await m.React("❌");
     }
