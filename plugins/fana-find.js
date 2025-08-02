@@ -106,7 +106,22 @@ const shazam = async (m, Matrix) => {
       const txt = `*${toFancyFont("Njabulo Jb IT!")}\n\n*${toFancyFont("Title")}:* ${title}\n*${toFancyFont("Artist")}:* ${artists ? artists.map((v) => v.name).join(", ") : "Unknown"}\n*${toFancyFont("Album")}:* ${album ? album.name : "Unknown"}\n*${toFancyFont("Genre")}:* ${genres ? genres.map((v) => v.name).join(", ") : "Unknown"}\n*${toFancyFont("Release")}:* ${release_date || "Unknown"}`;
 
       fs.unlinkSync(filePath);
-      await Matrix.sendMessage(m.from, { text: txt, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(m.from, { 
+        text: txt,
+        ...messageOptions
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     } catch (error) {
       console.error(`🎵 Shazam error: ${error.message}`);
       fs.unlinkSync(filePath); // Clean up even on error
