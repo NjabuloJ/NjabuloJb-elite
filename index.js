@@ -89,20 +89,20 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`🤖 JAWAD-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(`🤖 Njabulo-Jb using WA v${version.join('.')}, isLatest: ${isLatest}`);
         
         const Matrix = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: useQR,
-            browser: ["JAWAD-MD", "safari", "3.3"],
+            browser: ["Njabulo-Jb", "safari", "3.3"],
             auth: state,
             getMessage: async (key) => {
                 if (store) {
                     const msg = await store.loadMessage(key.remoteJid, key.id);
                     return msg.message || undefined;
                 }
-                return { conversation: "JAWAD-MD whatsapp user bot" };
+                return { conversation: "Njabulo Jb whatsapp user bot" };
             }
         });
 
@@ -131,7 +131,19 @@ Matrix.ev.on('connection.update', (update) => {
 ┏──────────────⊷
 ┊ *[Njabulo Jb connected]*
 ┗──────────────⊷`
-            });
+            }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
             initialConnection = false;
         } else {
             console.log(chalk.blue("♻️ Connection reestablished after restart."));
