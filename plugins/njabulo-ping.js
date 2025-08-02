@@ -68,7 +68,7 @@ const ping = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage{m.from,{ 
+    await Matrix.sendMessage(m.from,{ 
       text, ...messageOptions 
           }, { quoted: {
             key: {
