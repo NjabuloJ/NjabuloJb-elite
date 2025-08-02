@@ -197,7 +197,8 @@ const menu = async (m, Matrix) => {
                 }
             }
         } });
-
+     }
+  
     // Handle sub-menu commands
     if (subMenuCommands.includes(cmd)) {
       let menuTitle;
