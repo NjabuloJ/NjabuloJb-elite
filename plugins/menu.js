@@ -127,10 +127,8 @@ const menu = async (m, Matrix) => {
 - . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
 ┗
 ┏──────────────⊷
-┊*${pushwish}*
+┊*Hallo my family ${pushwish}*
 ┗──────────────⊷
-
-> Tap a button to select a menu category:
 `;
 
       const messageOptions = {
@@ -138,12 +136,12 @@ const menu = async (m, Matrix) => {
         buttons: [
           {
             buttonId: `${prefix}download-menu`,
-            buttonText: { displayText: `📃 ${toFancyFont("All Commands Cmd")}` },
+            buttonText: { displayText: ` ${toFancyFont("All Commands Cmd")}` },
             type: 1,
           },
           {
             buttonId: `${prefix}converter-menu`,
-            buttonText: { displayText: `📃 ${toFancyFont("Auto Join channel")}` },
+            buttonText: { displayText: ` ${toFancyFont("follow Join family")}` },
             type: 1,
           },
         ],
@@ -183,12 +181,22 @@ const menu = async (m, Matrix) => {
       }
 
       // Send audio as a voice note
-      await Matrix.sendMessage(
-        m.from,
-        { audio: { url: "https://files.catbox.moe/f4zaz4.mp3" }, mimetype: "audio/mp4", ptt: true },
-        { quoted: m }
-      );
-    }
+      await Matrix.sendMessage(m.from,{ 
+          audio: { url: "https://files.catbox.moe/z06nkt.mp3" },
+          mimetype: "audio/mp4", ptt: true
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     // Handle sub-menu commands
     if (subMenuCommands.includes(cmd)) {
