@@ -72,7 +72,7 @@ const alive = async (m, Matrix) => {
 
     const msg = generateWAMessageFromContent(m.from, {
       viewOnceMessage: {
-       viewOnce: true,
+        viewOnceMessage: true,
         message: {
           messageContextInfo: {
             deviceListMetadata: {},
@@ -86,7 +86,7 @@ const alive = async (m, Matrix) => {
               text: toFancyFont("Powered by Njabulo Jb")
             }),
             header: proto.Message.InteractiveMessage.Header.create({
-              viewOnce: true,
+              viewOnceMessage: true,
               title: "",
               gifPlayback: true,
               subtitle: "",
