@@ -43,7 +43,7 @@ function toFancyFont(text, isUpperCase = false) {
 
 // Image fetch utility
 async function fetchMenuImage() {
-  const imageUrl = "https://files.catbox.moe/omgszj.jpg";
+  const imageUrl = "https://files.catbox.moe/ozy8qg.jpeg";
   for (let i = 0; i < 3; i++) {
     try {
       const response = await axios.get(imageUrl, { responseType: "arraybuffer" });
@@ -87,45 +87,32 @@ const menu = async (m, Matrix) => {
 ┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
 ┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
 ┗──────────────⊷
-┏           *【 ᴍᴇɴᴜ ʟɪsᴛ 】⇳︎*
-- . ①  *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*
-- . ②  *ɢʀᴏᴜᴘ ᴍᴇɴᴜ*
-- . ③  *ғᴜɴ ᴍᴇɴᴜ*
-- . ④  *ᴏᴡɴᴇʀ ᴍᴇɴᴜ*
-- . ⑤  *ᴀɪ �ᴇɴᴜ*
-- . ⑥  *ᴀɴɪᴍᴇ ᴍᴇɴᴜ*
-- . ⑦  *ᴄᴏɴᴠᴇʀᴛ ᴍᴇɴᴜ*
-- . ⑧  *ᴏᴛʜᴇʀ ᴍᴇɴᴜ*
-- . ⑨  *ʀᴇᴀᴄᴛɪᴏɴs ᴍᴇɴᴜ*
-- . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
-┗
-┏──────────────⊷
-┊*Hallo my family ${pushwish}*
-┗──────────────⊷
 `;
 
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: `① Download` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: `② Group` }, type: 1 },
-          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: `③ Fun` }, type: 1 },
-          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: `④ Owner` }, type: 1 },
-          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: `⑤ AI` }, type: 1 },
-          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: `⑥ Anime` }, type: 1 },
-          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: `⑦ Converter` }, type: 1 },
-          { buttonId: `${prefix}other-menu`, buttonText: { displayText: `⑧ Other` }, type: 1 },
-          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: `⑨ Reactions` }, type: 1 },
-          { buttonId: `${prefix}main-menu`, buttonText: { displayText: `⑩ Main` }, type: 1 }
+          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Download` }, type: 1 },
+          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` Group` }, type: 1 },
+          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` Fun` }, type: 1 },
+          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: ` Owner` }, type: 1 },
+          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: ` AI` }, type: 1 },
+          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: ` Anime` }, type: 1 },
+          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: ` Converter` }, type: 1 },
+          { buttonId: `${prefix}other-menu`, buttonText: { displayText: ` Other` }, type: 1 },
+          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: ` Reactions` }, type: 1 },
+          { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Main` }, type: 1 }
         ],
         contextInfo: {
           mentionedJid: [m.sender],
-          forwardingScore: 999,
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363399999197102@newsletter',
-            newsletterName: "╭••➤®Njabulo Jb",
-            serverMessageId: 143
+          externalAdReply: {
+            showAdAttribution: true, // Marks as an ad
+            title: `${toFancyFont("Toxic-MD")} Menu`,
+            body: `${pushwish} Explore Toxic-MD's features!`,
+            sourceUrl: "https://github.com/xhclintohn/Toxic-MD",
+            mediaType: 1,
+            renderLargerThumbnail: true,
+            mediaUrl: "https://files.catbox.moe/zaqn1j.jpg",
           },
         },
       };
