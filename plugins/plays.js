@@ -71,16 +71,36 @@ const play = async (m, Matrix) => {
         };
         return Matrix.sendMessage(m.from, {
           text: `${toFancyFont("give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
-          ...messageOptions,
-        }, { quoted: m });
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
-
-
    const searchQuery = args.join(" ");
       await Matrix.sendMessage(m.from, {
         text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
-        viewOnce: true,
-      }, { quoted: m });
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       // Search YouTube for song info
       const searchResults = await ytSearch(searchQuery);
@@ -102,7 +122,19 @@ const play = async (m, Matrix) => {
         return Matrix.sendMessage(m.from, {
           text: `${toFancyFont("no")} ${toFancyFont("tracks")} ${toFancyFont("found")} ${toFancyFont("for")} "${searchQuery}". ${toFancyFont("you")} ${toFancyFont("slippin’")}!`,
           ...messageOptions,
-        }, { quoted: m });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
 
       const song = searchResults.videos[0];
@@ -171,7 +203,19 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
         await Matrix.sendMessage(m.from, {
           text: songInfo,
           ...messageOptions,
-        }, { quoted: m });
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
         // Download the audio file
         const downloadResponse = await fetch(data.result.download_url);
@@ -199,7 +243,19 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
         return Matrix.sendMessage(m.from, {
           text: `*Njabulo Jb* ${toFancyFont("couldn’t")} ${toFancyFont("hit")} ${toFancyFont("the")} ${toFancyFont("api")} ${toFancyFont("for")} "${song.title}". ${toFancyFont("server’s")} ${toFancyFont("actin’")} ${toFancyFont("up")}!`,
           ...messageOptions,
-        }, { quoted: m });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
 
 
@@ -245,7 +301,19 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
         return Matrix.sendMessage(m.from, {
           text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("can’t")} ${toFancyFont("song")} "${song.title}". ${toFancyFont("failed")} ${toFancyFont("to")} ${toFancyFont("send")} ${toFancyFont("audio")}`,
           ...messageOptions,
-        }, { quoted: m });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
 
       const buttons = [
@@ -265,8 +333,20 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
       await Matrix.sendMessage(m.from, {
         text: `*${song.title}* ${toFancyFont("dropped")} ${toFancyFont("by")} *Njabulo Jb*! ${toFancyFont("blast")} ${toFancyFont("it")}!`,
         ...messageOptions,
-      }, { quoted: m });
-    }
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+     }
   } catch (error) {
     console.error(`❌ song error: ${error.message}`);
     const buttons = [
@@ -286,7 +366,19 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
     await Matrix.sendMessage(m.from, {
       text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("hit")} ${toFancyFont("a")} ${toFancyFont("snag")}, ${toFancyFont("fam")}! ${toFancyFont("try")} ${toFancyFont("again")} ${toFancyFont("or")} ${toFancyFont("pick")} ${toFancyFont("a")} ${toFancyFont("better")} ${toFancyFont("track")}! `,
       ...messageOptions,
-    }, { quoted: m });
+  }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 };
 
