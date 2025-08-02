@@ -147,26 +147,37 @@ const menu = async (m, Matrix) => {
             type: 1,
           },
         ],
-        contextInfo: {
-          mentionedJid: [m.sender],
-          externalAdReply: {
-          title: "ɴᴊᴀʙᴜʟᴏ ᴊʙ",
-          body: `${pushwish}`,
-          thumbnailUrl: "https://whatsapp.com/channel/0029VbAckOZ7tkj92um4KN3u",
-           sourceUrl: "https://whatsapp.com/channel/0029VbAckOZ7tkj92um4KN3u",
-           mediaType: 1,
-           showAdAttribution: true
+         contextInfo: {
+         mentionedJid: [m.sender],
+           forwardingScore: 999,
+           isForwarded: true,
+           forwardedNewsletterMessageInfo: {
+           newsletterJid: '120363399999197102@newsletter',
+           newsletterName: "╭••➤®Njabulo Jb",
+           serverMessageId: 143
           },
         },
       };
 
       // Send menu with or without image
       if (menuImage) {
-        await Matrix.sendMessage(
-          m.from,
-          { image: menuImage, caption: mainMenu, ...messageOptions },
-          { quoted: m }
-        );
+        await Matrix.sendMessage(m.from,{ 
+            image: menuImage,
+          caption: mainMenu,
+          ...messageOptions
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       } else {
         await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
       }
