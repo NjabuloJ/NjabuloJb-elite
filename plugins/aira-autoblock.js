@@ -47,9 +47,22 @@ const autoblockCommand = async (m, Matrix) => {
 
   if (cmd === 'autoblock') {
     if (!isCreator) return Matrix.sendMessage(m.from, {
-      text: "*📛 ᴛʜɪs ɪs ᴀɴ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ*",
+      text: "*ᴛʜɪs ɪs ᴀɴ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ*",
       viewOnce: true,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+      }
     let responseMessage;
     const buttons = [
       {
@@ -77,9 +90,19 @@ const autoblockCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autoblock ${toFancyFont("on")}\`: Enable Auto-Block\n- \`${prefix}autoblock ${toFancyFont("off")}\`: Disable Auto-Block`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (text === 'on') {
@@ -101,9 +124,19 @@ const autoblockCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autoblock ${toFancyFont("on")}\`: Enable Auto-Block\n- \`${prefix}autoblock ${toFancyFont("off")}\`: Disable Auto-Block`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
+}, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
     try {
       await Matrix.sendMessage(m.from, { text: responseMessage, viewOnce: true }, { quoted: m });
