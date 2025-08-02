@@ -84,5 +84,6 @@ const ping = async (m, Matrix) => {
                 }
             }
         } });
+     }
                              
 export default ping;
