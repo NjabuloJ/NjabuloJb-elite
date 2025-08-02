@@ -42,6 +42,12 @@ function toFancyFont(text, isUpperCase = false) {
     .join("");
 }
 
+const createButton = (buttonId, displayText) => ({
+  buttonId,
+  buttonText: { displayText: `${toFancyFont(displayText)}` },
+  type: 1,
+});
+
 const MAX_FILE_SIZE_MB = 200;
 
 async function uploadMedia(buffer) {
@@ -77,21 +83,17 @@ const tourl = async (m, Matrix) => {
     if (!validCommands.includes(cmd)) return;
 
     if (!m.quoted || !["imageMessage", "videoMessage", "audioMessage"].includes(m.quoted.mtype)) {
-      const buttons = [
-        {
-          buttonId: `.help`,
-          buttonText: { displayText: `${toFancyFont("Help")}` },
-          type: 1,
-        },
-      ];
+      const buttons = [createButton(`.help`, "Help")];
       const messageOptions = {
-        viewOnce: true,
         buttons,
         contextInfo: {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, Toxic-MD needs a quoted image, video, or audio, fam!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("PLEASE QUOTE AN IMAGE, VIDEO OR AUDIO")}`,
+        ...messageOptions
+      }, { quoted: m });
     }
 
     const loadingMessages = [
@@ -112,7 +114,7 @@ const tourl = async (m, Matrix) => {
 
     const { key } = await Matrix.sendMessage(
       m.from,
-      { text: `*${toFancyFont("Toxic-MD uploadin’ your media... ")} ${loadingMessages[currentMessageIndex]}`, ...messageOptions },
+      { text: `*${toFancyFont("UPLOADING MEDIA")}... ${loadingMessages[currentMessageIndex]}*` },
       { quoted: m }
     );
 
@@ -120,7 +122,7 @@ const tourl = async (m, Matrix) => {
       currentMessageIndex = (currentMessageIndex + 1) % loadingMessageCount;
       await Matrix.sendMessage(
         m.from,
-        { text: `*${toFancyFont("Toxic-MD uploadin’ your media... ")} ${loadingMessages[currentMessageIndex]}`, ...messageOptions },
+        { text: `*${toFancyFont("UPLOADING MEDIA")}... ${loadingMessages[currentMessageIndex]}*` },
         { quoted: m, messageId: key }
       );
     }, 500);
@@ -128,72 +130,87 @@ const tourl = async (m, Matrix) => {
     const media = await m.quoted.download();
     if (!media) {
       clearInterval(loadingInterval);
-      throw new Error("Failed to download media");
-    }
-
-    const fileSizeMB = media.length / (1024 * 1024);
-    if (fileSizeMB > MAX_FILE_SIZE_MB) {
-      clearInterval(loadingInterval);
-      const buttons = [
-        {
-          buttonId: `.help`,
-          buttonText: { displayText: `${toFancyFont("Help")}` },
-          type: 1,
-        },
-      ];
+      const buttons = [createButton(`.report`, "Report")];
       const messageOptions = {
-        viewOnce: true,
         buttons,
         contextInfo: {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("File’s too big, fam! Max is " + MAX_FILE_SIZE_MB + "MB.")}`, ...messageOptions }, { quoted: m });
+      throw Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont("FAILED TO DOWNLOAD MEDIA")}`,
+        ...messageOptions
+      }, { quoted: m });
+    }
+
+    const fileSizeMB = media.length / (1024 * 1024);
+    if (fileSizeMB > MAX_FILE_SIZE_MB) {
+      clearInterval(loadingInterval);
+      const buttons = [createButton(`.menu`, "Menu")];
+      const messageOptions = {
+        buttons,
+        contextInfo: {
+          mentionedJid: [m.sender],
+        },
+      };
+      return Matrix.sendMessage(m.from, {
+        text: `*${toFancyFont(`FILE TOO BIG, MAX IS ${MAX_FILE_SIZE_MB}MB`)}`,
+        ...messageOptions
+      }, { quoted: m });
     }
 
     const mediaUrl = await uploadMedia(media);
 
     clearInterval(loadingInterval);
-    const buttons = [
-      {
-        buttonId: `.menu`,
-        buttonText: { displayText: `${toFancyFont("Menu")}` },
-        type: 1,
-      },
-    ];
+    const buttons = [createButton(`.menu`, "Menu")];
     const messageOptions = {
-      viewOnce: true,
       buttons,
       contextInfo: {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD upload done, fam!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(
+      m.from,
+      {
+        text: `*${toFancyFont("MEDIA UPLOADED SUCCESSFULLY")}`,
+        ...messageOptions
+      },
+      { quoted: m }
+    );
 
     const mediaType = getMediaType(m.quoted.mtype);
     if (mediaType === "audio") {
-      await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD got your audio URL, fam!")}\n*${toFancyFont("URL: ")} ${mediaUrl}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(
+        m.from,
+        {
+          text: `*${toFancyFont("AUDIO URL: ")}${mediaUrl}`,
+        },
+        { quoted: m }
+      );
     } else {
-      await Matrix.sendMessage(m.from, { [mediaType]: { url: mediaUrl }, caption: `*${toFancyFont("Toxic-MD got your " + mediaType + " URL, fam!")}\n*${toFancyFont("URL: ")} ${mediaUrl}`, ...messageOptions }, { quoted: m });
+      await Matrix.sendMessage(
+        m.from,
+        {
+          [mediaType]: { url: mediaUrl },
+          caption: `*${toFancyFont(`${mediaType} URL: `)}${mediaUrl}`,
+        },
+        { quoted: m }
+      );
     }
   } catch (error) {
     clearInterval(loadingInterval);
-    console.error(`❌ Tourl error: ${error.message}`);
-    const buttons = [
-      {
-        buttonId: `.report`,
-        buttonText: { displayText: `${toFancyFont("Report")}` },
-        type: 1,
-      },
-    ];
+    console.error(`Error: ${error.message}`);
+    const buttons = [createButton(`.report`, "Report")];
     const messageOptions = {
-      viewOnce: true,
       buttons,
       contextInfo: {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD hit a snag uploadin’, fam! Try again!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, {
+      text: `*${toFancyFont("AN ERROR OCCURRED WHILE UPLOADING MEDIA")}`,
+      ...messageOptions
+    }, { quoted: m });
   }
 };
 
