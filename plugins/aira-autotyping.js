@@ -47,9 +47,21 @@ const autotypingCommand = async (m, Matrix) => {
 
   if (cmd === 'autotyping') {
     if (!isCreator) return Matrix.sendMessage(m.from, {
-      text: "*📛 ᴛʜɪs ɪs ᴀɴ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ*",
+      text: "*⚠︎ ᴛʜɪs ɪs ᴀɴ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ*",
       viewOnce: true,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     let responseMessage;
     const buttons = [
       {
@@ -77,9 +89,19 @@ const autotypingCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autotyping ${toFancyFont("on")}\`: Enable Auto-Typing\n- \`${prefix}autotyping ${toFancyFont("off")}\`: Disable Auto-Typing`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (text === 'on') {
@@ -101,9 +123,19 @@ const autotypingCommand = async (m, Matrix) => {
         {
           text: `Usage:\n- \`${prefix}autotyping ${toFancyFont("on")}\`: Enable Auto-Typing\n- \`${prefix}autotyping ${toFancyFont("off")}\`: Disable Auto-Typing`,
           ...messageOptions,
-        },
-        { quoted: m }
-      );
+          }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     try {
