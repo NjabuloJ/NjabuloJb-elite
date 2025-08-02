@@ -62,7 +62,7 @@ const autoblockCommand = async (m, Matrix) => {
                 }
             }
         } });
-      }
+  
     let responseMessage;
     const buttons = [
       {
