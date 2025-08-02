@@ -63,7 +63,21 @@ const tagAll = async (m, gss) => {
           mentionedJid: [m.sender],
         },
       };
-      return m.reply(`*${toFancyFont("THIS COMMAND CAN ONLY BE USED IN GROUPS")}`, messageOptions);
+      return m.reply(`*${toFancyFont("THIS COMMAND CAN ONLY BE USED IN GROUPS*")}`,
+      messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const groupMetadata = await gss.groupMetadata(m.from);
@@ -86,7 +100,21 @@ const tagAll = async (m, gss) => {
           mentionedJid: [m.sender],
         },
       };
-      return m.reply(`*${toFancyFont("BOT MUST BE AN ADMIN TO USE THIS COMMAND")}`, messageOptions);
+      return m.reply(`*${toFancyFont("BOT MUST BE AN ADMIN TO USE THIS COMMAND")}`, 
+     messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
     if (!senderAdmin) {
       const buttons = [
@@ -103,7 +131,21 @@ const tagAll = async (m, gss) => {
           mentionedJid: [m.sender],
         },
       };
-      return m.reply(`*${toFancyFont("YOU MUST BE AN ADMIN TO USE THIS COMMAND")}`, messageOptions);
+      return m.reply(`*${toFancyFont("YOU MUST BE AN ADMIN TO USE THIS COMMAND")}`,
+      messageOptions
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     let message = `*${toFancyFont("Attention Everyone")}*\n\n*${toFancyFont("Message: ")} ${m.body.slice(prefix.length + cmd.length).trim() || toFancyFont('no message')}\n\n`;
@@ -126,7 +168,22 @@ const tagAll = async (m, gss) => {
         mentionedJid: [m.sender],
       },
     };
-    await gss.sendMessage(m.from, { text: message, mentions: participants.map(a => a.id), ...messageOptions }, { quoted: m });
+    await gss.sendMessage(m.from, {
+      text: message, mentions: participants.map(a => a.id),
+      ...messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   } catch (error) {
     console.error('Error:', error);
     const buttons = [
