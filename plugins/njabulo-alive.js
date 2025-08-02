@@ -53,6 +53,7 @@ const alive = async (m, Matrix) => {
           type: 1,
         },
       ],
+      image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
       contextInfo: {
         mentionedJid: [m.sender],
         externalAdReply: {
@@ -67,6 +68,7 @@ const alive = async (m, Matrix) => {
     };
 
     await Matrix.sendMessage(m.from, {
+      image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
       text: message,
       ...messageOptions,
     }, { quoted: m });
