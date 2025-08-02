@@ -9,7 +9,7 @@ const text = m.body.slice(prefix.length + cmd.length).trim();
     if (cmd === 'owner') {
         try {
             await gss.sendContact(m.from, 
-             [ownernumber],
+             [ownernumber],m
              }, { quoted: {
             key: {
                 fromMe: false,
