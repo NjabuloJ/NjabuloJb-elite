@@ -92,25 +92,36 @@ const menu = async (m, Matrix) => {
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` plugins` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` owner number` }, type: 1 },
-          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` license W:bot` }, type: 1 },
-          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
-        ],
-        contextInfo: {
-          mentionedJid: [m.sender],
-          externalAdReply: {
-            showAdAttribution: true, // Marks as an ad
-            title: `${toFancyFont("Toxic-MD")} Menu`,
-            body: `${pushwish} Explore Toxic-MD's features!`,
-            sourceUrl: "https://github.com/xhclintohn/Toxic-MD",
-            mediaType: 1,
-            renderLargerThumbnail: true,
-            mediaUrl: "https://files.catbox.moe/zaqn1j.jpg",
-          },
+                {
+                  name: "quick_reply",
+                  buttonParamsJson: JSON.stringify({
+                    display_text: "Contact Owner",
+                    id: ".owner"
+                  })
+                },
+                {
+                  name: "cta_url",
+                  buttonParamsJson: JSON.stringify({
+                    display_text: "Click Here To Fork",
+                    url: `https://github.com/SilvaTechB/Ethix-MD/fork`
+                  })
+                },
+                {
+                  name: "cta_url",
+                  buttonParamsJson: JSON.stringify({
+                    display_text: "Join Our Community",
+                    url: `https://whatsapp.com/channel/0029VaAkETLLY6d8qhLmZt2v`
+                  })
+                }
+              ],
+            contextInfo: {
+              mentionedJid: [m.sender],
+              forwardingScore: 9999,
+              isForwarded: true,
+            }
+          }),
         },
-      };
-
+       
       // Send menu with or without image
       if (menuImage) {
         await Matrix.sendMessage(m.from, { 
