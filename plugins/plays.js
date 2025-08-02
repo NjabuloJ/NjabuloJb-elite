@@ -80,7 +80,19 @@ const play = async (m, Matrix) => {
       await Matrix.sendMessage(m.from, {
         text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
         viewOnce: true,
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       // Search YouTube for song info
       const searchResults = await ytSearch(searchQuery);
@@ -257,8 +269,19 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
         return Matrix.sendMessage(m.from, {
           text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("can’t")} ${toFancyFont("song")} "${song.title}". ${toFancyFont("failed")} ${toFancyFont("to")} ${toFancyFont("send")} ${toFancyFont("audio")}`,
           ...messageOptions,
-        }, { quoted: m });
-      }
+           }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       const buttons = [
         {
