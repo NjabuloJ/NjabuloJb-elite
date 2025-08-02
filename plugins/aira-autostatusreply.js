@@ -201,7 +201,6 @@ const autostatusreplyCommand = async (m, Matrix) => {
                 }
             }
         } });
-  }
   } catch (error) {
     console.error(`❌ Autostatusreply error: ${error.message}`);
     const buttons = [
