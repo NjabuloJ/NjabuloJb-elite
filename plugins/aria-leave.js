@@ -65,8 +65,20 @@ const leaveGroup = async (m, Matrix) => {
       return Matrix.sendMessage(m.from, {
         text: ` ${toFancyFont("yo")}, ${toFancyFont("dumbass")}, *NJABULO JB* ${toFancyFont("only")} ${toFancyFont("ditches")} ${toFancyFont("groups")}! ${toFancyFont("this")} ${toFancyFont("ain’t")} ${toFancyFont("one")}! 😤🏠`,
         ...messageOptions,
-      }, { quoted: m });
-    }
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+                                                                                    }
 
     if (!isCreator) {
       const buttons = [
@@ -86,13 +98,37 @@ const leaveGroup = async (m, Matrix) => {
       return Matrix.sendMessage(m.from, {
         text: `${toFancyFont("fuck")} ${toFancyFont("off")}, ${toFancyFont("poser")}! ${toFancyFont("only")} *Njabulo Jb*’s ${toFancyFont("boss")} ${toFancyFont("can")} ${toFancyFont("tell")} ${toFancyFont("me")} ${toFancyFont("to")} ${toFancyFont("bounce")}!`,
         ...messageOptions,
-      }, { quoted: m });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     await Matrix.sendMessage(m.from, {
       text: ` *Njabulo Jb*’s ${toFancyFont("out")} ${toFancyFont("this")} ${toFancyFont("bitch")}! ${toFancyFont("peace")}, ${toFancyFont("losers")}!`,
       viewOnce: true,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     await Matrix.groupLeave(m.from);
   } catch (error) {
