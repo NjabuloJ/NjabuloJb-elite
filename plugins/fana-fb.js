@@ -1,6 +1,6 @@
 import axios from "axios";
 import config from "../config.cjs";
-import pkg, { prepareWAMessageMedia } from "baileys-pro";
+import pkg, { prepareWAMessageMedia } from "@whiskeysockets/baileys";
 const { generateWAMessageFromContent, proto } = pkg;
 
 function toFancyFont(text, isUpperCase = false) {
@@ -62,7 +62,22 @@ const facebook = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, dumbass, gimme a proper Facebook video URL!")}*`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("Yo, dumbass, gimme a proper Facebook video URL!")}*`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     await Matrix.sendMessage(m.from, { react: { text: "⏳", key: m.key } });
@@ -107,17 +122,44 @@ const facebook = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("No video worth downloadin’ here, fam! Toxic-MD ain’t got time for this shit!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { 
+        text: `*${toFancyFont("No video worth downloadin’ here, fam! Njabulo Jb ain’t got time for this shit!")}`, 
+        ...messageOptions
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const quality = hd_video ? "HD" : "SD";
-    const caption = `*${toFancyFont("Aira Facebook Video")}*\n*${toFancyFont("Title")}:* ${title || "No title"}\n*${toFancyFont("Quality")}:* ${quality}`;
+    const caption = `*${toFancyFont("Njabulo Jb Facebook Video")}*\n*${toFancyFont("Title")}:* ${title || "No title"}\n*${toFancyFont("Quality")}:* ${quality}`;
 
     await Matrix.sendMessage(m.from, {
       video: { url: videoUrl },
       mimetype: "video/mp4",
       caption,
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     await Matrix.sendMessage(m.from, { react: { text: "✅", key: m.key } });
   } catch (error) {
