@@ -8,9 +8,9 @@ const text = m.body.slice(prefix.length + cmd.length).trim();
 
     if (cmd === 'owner') {
         try {
-            await gss.sendContact(m.from,{ [ownernumber], m
-             }, { quoted: {
-            key: {
+            await gss.sendContact(m.from,{ 
+              [ownernumber],
+               key: {
                 fromMe: false,
                 participant: `0@s.whatsapp.net`,
                 remoteJid: "status@broadcast"
