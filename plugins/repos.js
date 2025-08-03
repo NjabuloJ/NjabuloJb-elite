@@ -134,13 +134,13 @@ const menu = async (m, Matrix) => {
     if (validCommands.includes(cmd)) {
       const mainMenu = `
 ┌─❖
-│ give star and forks    
+│ *🌐info repository 🌐*  
 └┬❖  
 ┌┤  ${pushwish} 
 │└────────┈⳹  
 │🕵️ ᴜsᴇʀ ɴᴀᴍᴇ: *${m.pushName}*
-│⭐ star: *${repoData.stargazers_count || 0} *
-│🍴 forks: * ${repoData.forks_count || 0} *     
+│⭐ star: *${repoData.stargazers_count || 0}*
+│🍴 forks: * ${repoData.forks_count || 0}*     
 │📥 update:  ${lastUpdateDate}      
 └─────────────┈⳹
 *[Git repo]*  ${repoData.html_url}
@@ -155,7 +155,6 @@ const menu = async (m, Matrix) => {
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}njabulo hello can l ask please`, buttonText: { displayText: ` NjabuloJb |AI` }, type: 1 },
           { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow family |INFORMATION|` }, type: 1 },
         ],
          contextInfo: {
