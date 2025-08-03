@@ -162,7 +162,7 @@ _click with any button above to access that menu section_
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` plugins` }, type: 1 },
+          { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` plugins |cmd` }, type: 1 },
           { buttonId: `${prefix}njabulo hello can l ask please`, buttonText: { displayText: ` NjabuloJb |AI` }, type: 1 },
           { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow family |INFORMATION` }, type: 1 },
         ],
