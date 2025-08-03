@@ -113,7 +113,6 @@ const menu = async (m, Matrix) => {
 ┊ mode : *[ ${mode} ]*
 Total Commands : ${totalCommands}
  Platform: ${os.platform()}
-│ Uptime: ${runMessage}
 │ Date: ${xdate}
 │ Time*: ${xtime} (EAT)
 ┊ prefix : * [ ${prefix} ]*
