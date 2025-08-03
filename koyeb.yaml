@@ -1,6 +1,6 @@
-name: jawad-md
+name: NjabuloJb-elite
 services:
-  - name: jawad-md-service
+  - name: NjabuloJb-elite-service
     type: web
     ports:
       - 5000
