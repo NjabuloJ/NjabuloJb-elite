@@ -18,7 +18,7 @@ const aiMenu = async (m, Matrix) => {
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
   const prompt = m.body.slice(prefix.length + cmd.length).trim();
 
-  const validCommands = ['ai', 'gpt', 'openai', 'deepseek', 'bing', 'marisel', 'groq', 'gpt4', 'gemini', 'deepimg'];
+  const validCommands = ['NjabuloJb AI', 'gpt', 'openai', 'deepseek', 'bing', 'groq', 'gpt4', 'gemini', 'deepimg'];
   const aiSubCommands = ['ai-menu'];
 
   if (aiSubCommands.includes(cmd)) {
@@ -40,10 +40,10 @@ const aiMenu = async (m, Matrix) => {
 `;
 
     const buttons = [
-      { buttonId: `${prefix}ai`, buttonText: { displayText: '🔹 ᴀɪ' }, type: 1 },
-      { buttonId: `${prefix}gpt`, buttonText: { displayText: '🔹 ɢᴘᴛ' }, type: 1 },
-      { buttonId: `${prefix}groq`, buttonText: { displayText: '🔹 ɢʀᴏϙ' }, type: 1 },
-      { buttonId: `${prefix}gpt4`, buttonText: { displayText: '🔹 ɢᴘᴛ4' }, type: 1 },
+      { buttonId: `${prefix}ai`, buttonText: { displayText: ' ᴀɪ' }, type: 1 },
+      { buttonId: `${prefix}gpt`, buttonText: { displayText: ' ɢᴘᴛ' }, type: 1 },
+      { buttonId: `${prefix}groq`, buttonText: { displayText: ' ɢʀᴏϙ' }, type: 1 },
+      { buttonId: `${prefix}gpt4`, buttonText: { displayText: ' ɢᴘᴛ4' }, type: 1 },
       { buttonId: `${prefix}menu`, buttonText: { displayText: '🔙 ᴍᴇɴᴜ' }, type: 1 }
     ];
 
