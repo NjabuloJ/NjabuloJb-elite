@@ -35,7 +35,7 @@ const aiMenu = async (m, Matrix) => {
 ┊ .ɢᴇᴍɪɴɪ
 ┊ .ᴅᴇᴇᴘɪᴍɢ
 ┊ .ʙɪɴɢ
-┊ .ᴍᴀʀɪsᴇʟ
+┊ .
 ┗──────────────⊷
 `;
 
@@ -114,7 +114,19 @@ const aiMenu = async (m, Matrix) => {
         text: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by njabulo jb')}`,
         buttons,
         headerType: 1
-      }, { quoted: m });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     } catch (err) {
       console.error('AI Error:', err);
