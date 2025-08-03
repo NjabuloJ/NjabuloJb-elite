@@ -132,7 +132,7 @@ ${toFancyFont("*Created*")}: ${createdDate}
 ${toFancyFont("*Updated*")}: ${lastUpdateDate}
 ${toFancyFont("*Link*")}: ${repoData.html_url}
 
-Give star and forks and deploy bot on *(render)* 
+Give star and forks and deploy bot on *(render/heroku)* 
 is alive *(24/8)* online✓
 
 
@@ -170,11 +170,24 @@ is alive *(24/8)* online✓
 
       // Send menu with or without image
       if (menuImage) {
-        await Matrix.sendMessage(
-          m.from,
-          { image: menuImage, caption: mainMenu, ...messageOptions },
-          { quoted: m }
-        );
+        await Matrix.sendMessage(m.from,{
+            image: menuImage,
+           caption: mainMenu, 
+           ...messageOptions 
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+      }
       } else {
         await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
        }
