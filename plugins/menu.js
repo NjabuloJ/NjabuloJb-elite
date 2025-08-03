@@ -163,8 +163,8 @@ _click with any button above to access that menu section_
         viewOnce: true,
         buttons: [
           { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` plugins` }, type: 1 },
-          { buttonId: `${prefix}NjabuloJb Ai`, buttonText: { displayText: ` NjabuloJb AI` }, type: 1 },
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
+          { buttonId: `${prefix}njabulo`, buttonText: { displayText: ` NjabuloJb AI` }, type: 1 },
+          { buttonId: `${prefix}channel`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
         ],
          contextInfo: {
          mentionedJid: [m.sender],
@@ -226,7 +226,7 @@ _click with any button above to access that menu section_
       let menuResponse;
 
       switch (cmd) {
-        case "download-menu":
+        case "channel":
           menuTitle = "All Commands Cmd";
           menuResponse = `.
 `;
