@@ -7,6 +7,15 @@ import config from "../config.cjs";
 import axios from "axios";
 
 // Time logic
+
+const uptime = process.uptime();
+const day = Math.floor(uptime / (24 * 3600));
+const hours = Math.floor((uptime % (24 * 3600)) / 3600);
+const minutes = Math.floor((uptime % 3600) / 60);
+const seconds = Math.floor(uptime % 60);
+const uptimeMessage = `*I’ve been grindin’ for ${day}d ${hours}h ${minutes}m ${seconds}s* 🕒`;
+const runMessage = `*☀️ ${day} Day*\n*🕐 ${hours} Hour*\n*⏰ ${minutes} Min*\n*⏱️ ${seconds} Sec*`;
+
 const xtime = moment.tz("Africa/Nairobi").format("HH:mm:ss");
 const xdate = moment.tz("Africa/Nairobi").format("DD/MM/YYYY");
 const time2 = moment().tz("Africa/Nairobi").format("HH:mm:ss");
@@ -108,14 +117,16 @@ const menu = async (m, Matrix) => {
     // Handle main menu
     if (validCommands.includes(cmd)) {
       const mainMenu = `
-┏──────────────⊷
-┊ name :  *NנɐႦυℓσ נႦ*
-┊ mode : *[ ${mode} ]*
-Total Commands : ${totalCommands}
- Platform: ${os.platform()}
-│ Date: ${xdate}
-│ Time*: ${xtime} (EAT)
-┊ prefix : * [ ${prefix} ]*
+╭━━〔 *ɴᴊᴀʙᴜʟᴏᴊʙ* 〕┈⊷
+┃◈╭─────────·๏
+┃◈┃ ɴᴀᴍᴇ : ${config.OWNER_NAME}
+┃◈┃ᴍᴏᴅᴇ : [ ${mode} ]*
+┃◈┃ *ᴘʀᴇғɪx : [ ${prefix} ]*
+┃◈┃ᴘʟᴜɢɪɴs : ${totalCommands}
+┃◈┃ᴅᴀᴛᴇ : ${xdate}
+┃◈┃ᴛɪᴍᴇ : ${xtime} (EAT)
+ *Uptime*: ${runMessage}
+┃◈└────────┈⊷
 ┗──────────────⊷
 
 `;
