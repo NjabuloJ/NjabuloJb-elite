@@ -130,7 +130,16 @@ Matrix.ev.on('connection.update', (update) => {
 ┗
 ┏──────────────⊷
 ┊ *[Njabulo Jb connected]*
-┗──────────────⊷`
+┗──────────────⊷`,
+               contextInfo: {
+               forwardingScore: 999,
+               isForwarded: true,
+              forwardedNewsletterMessageInfo: {
+              newsletterJid: '120363399999197102@newsletter',
+              newsletterName: "╭••➤®Njabulo Jb",
+              serverMessageId: 143
+              }
+            }
             }, { quoted: {
             key: {
                 fromMe: false,
@@ -190,7 +199,7 @@ Matrix.ev.on('connection.update', (update) => {
             await Matrix.readMessages([mek.key]);
             
             if (config.AUTO_STATUS_REPLY) {
-                const customMessage = config.STATUS_READ_MSG || '✅ Auto Status Seen Bot By JAWAD-MD';
+                const customMessage = config.STATUS_READ_MSG || 'Nice you status ❤️';
                 await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
             }
         }
