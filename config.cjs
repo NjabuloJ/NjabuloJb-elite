@@ -23,9 +23,9 @@ const config = {
   MODE: process.env.MODE || "public",
   BOT_NAME: process.env.BOT_NAME || "NjabuloJb-elite",
   MENU_IMAGE: process.env.MENU_IMAGE || "https://files.catbox.moe/7l1tt5.jpg",
-  DESCRIPTION: process.env.DESCRIPTION || "© ᴘᴏᴡᴇʀᴇᴅ ʙʏ Jᴀᴡᴀᴅ TᴇᴄʜX",
-  OWNER_NAME: process.env.OWNER_NAME || "JawadTechX",
-  OWNER_NUMBER: process.env.OWNER_NUMBER || "923427582273",
+  DESCRIPTION: process.env.DESCRIPTION || "> ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ",
+  OWNER_NAME: process.env.OWNER_NAME || "Njabulo Jb",
+  OWNER_NUMBER: process.env.OWNER_NUMBER || "26777821911",
   GEMINI_KEY: process.env.GEMINI_KEY || "AIzaSyCUPaxfIdZawsKZKqCqJcC-GWiQPCXKTDc",
   WELCOME: process.env.WELCOME !== undefined ? process.env.WELCOME === 'true' : false, 
 };
