@@ -106,7 +106,7 @@ const tourl = async (m, Matrix) => {
                 }
             }
         } });
-    }
+    
     const loadingMessages = [
       "*「▰▱▱▱▱▱▱▱▱▱」*",
       "*「▰▰▱▱▱▱▱▱▱▱」*",
