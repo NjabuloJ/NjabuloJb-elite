@@ -1,10 +1,11 @@
-import moment from 'moment-timezone';
-import fs from 'fs';
-import os from 'os';
-
+import moment from "moment-timezone";
+import fs from "fs";
+import os from "os";
 import pkg from "@whiskeysockets/baileys";
 const { generateWAMessageFromContent, proto } = pkg;
 import config from "../config.cjs";
+import axios from "axios";
+
 
 // Get total memory and free memory in bytes
 const totalMemoryBytes = os.totalmem();
@@ -79,7 +80,7 @@ const test = async (m, Matrix) => {
 
 let mode = ethix.public ? 'public' : 'private';
 
-        const validCommands = ['lis', 'hel', 'men'];
+        const validCommands = ['lidst', 'hehlp', 'meinu'];
 
   if (validCommands.includes(cmd)) {
     let msg = generateWAMessageFromContent(m.from, {
@@ -211,7 +212,7 @@ let mode = ethix.public ? 'public' : 'private';
 ╭─────────────━┈⊷
 │🤖 ʙᴏᴛ ɴᴀᴍᴇ: *🇸​​🇮​​🇱​​🇻​​🇦​ ​🇪​​🇹​​🇭​​🇮​​🇽​*
 │📍 ᴠᴇʀꜱɪᴏɴ: 2.0.3
-│👨‍💻 ᴏᴡɴᴇʀ : *🇸​​🇮​​🇱​​🇻​​🇦​*      
+│??‍?? ᴏᴡɴᴇʀ : *🇸​​🇮​​🇱​​🇻​​🇦​*      
 │👤 ɴᴜᴍʙᴇʀ: 254743706010
 │💻 HOSTER: *${os.platform()}*
 │🛡 ᴍᴏᴅᴇ: *${mode}*
@@ -318,10 +319,22 @@ let mode = ethix.public ? 'public' : 'private';
 ╰━━━━━━━━━━━━━━━⪼
    `;
         let fgg = {
-         }, {
-  quoted: m
-});
-  }
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: `Ethix-MD`,
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:'Ethix-MD'\nitem1.TEL;waid=${
+                        m.sender.split("@")[0]
+                    }:${
+                        m.sender.split("@")[0]
+                    }\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+                }
+            }
+        };
        let { key } = await Matrix.sendMessage(m.from, {
   image: fs.readFileSync('./src/ethix.jpg'), 
   caption: str, 
@@ -499,7 +512,7 @@ await Matrix.sendMessage(m.from, {
 ┃✰ ${prefix}𝚆𝚊𝚕𝚕𝚙𝚊𝚙𝚎𝚛
 ┃✰ ${prefix}𝚆𝚒𝚔𝚒𝚖𝚎𝚍𝚒𝚊
 ┃✰ ${prefix}𝚈𝚝𝚜𝚎𝚊𝚛𝚌𝚑
-┃✰ ${prefix}𝚁𝚒𝚗𝚐𝚝𝚘𝚗𝚎
+┃✰ ${prefix}𝚁𝚒𝚗𝚐𝚝??𝚗𝚎
 ┃✰ ${prefix}𝙻𝚢𝚛𝚒𝚌𝚜
 ╰━━━━━━━━━━━━━━━⪼`
 await Matrix.sendMessage(m.from, {
