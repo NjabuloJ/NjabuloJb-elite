@@ -22,7 +22,7 @@ _______________________________________
 *⏲️ ${seconds} Second*
 _______powered by silva tech____________
 `;
-
+ 
   const buttons = [
         {
           "name": "quick_reply",
@@ -42,6 +42,7 @@ _______powered by silva tech____________
 
   const msg = generateWAMessageFromContent(m.from, {
     viewOnceMessage: {
+      viewOnce: true,
       message: {
         messageContextInfo: {
           deviceListMetadata: {},
@@ -64,6 +65,7 @@ _______powered by silva tech____________
             buttons
           }),
           contextInfo: {
+            viewOnce: true,
                   mentionedJid: [m.sender], 
                   forwardingScore: 999,
                   isForwarded: true,
