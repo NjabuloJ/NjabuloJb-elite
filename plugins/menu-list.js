@@ -80,7 +80,7 @@ const menu = async (m, Matrix) => {
 
     // Handle main menu
     if (validCommands.includes(cmd)) {
-      const mainMenu = `┊ ɴᴀᴍᴇ :  NנɐႦυℓσ נႦ`;
+      const mainMenu = `> click button to get more cmd *|INFORMATION|*`;
 
       const messageOptions = {
         viewOnce: true,
@@ -95,6 +95,7 @@ const menu = async (m, Matrix) => {
           { buttonId: `${prefix}other-menu`, buttonText: { displayText: ` Other |INFORMATION|` }, type: 1 },
           { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: ` Reactions |INFORMATION|` }, type: 1 },
           { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Main |INFORMATION|` }, type: 1 }
+          { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow Join family |INFORMATION|` }, type: 1 }
         ],
         contextInfo: {
           mentionedJid: [m.sender],
