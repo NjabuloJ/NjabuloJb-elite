@@ -80,43 +80,21 @@ const menu = async (m, Matrix) => {
 
     // Handle main menu
     if (validCommands.includes(cmd)) {
-      const mainMenu = `
-┏──────────────⊷
-┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
-┊ ᴍᴏᴅᴇ : *[ ${mode} ]*
-┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
-┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
-┗──────────────⊷
-┏           *【 ᴍᴇɴᴜ ʟɪsᴛ 】⇳︎*
-- . ①  *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*
-- . ②  *ɢʀᴏᴜᴘ ᴍᴇɴᴜ*
-- . ③  *ғᴜɴ ᴍᴇɴᴜ*
-- . ④  *ᴏᴡɴᴇʀ ᴍᴇɴᴜ*
-- . ⑤  *ᴀɪ �ᴇɴᴜ*
-- . ⑥  *ᴀɴɪᴍᴇ ᴍᴇɴᴜ*
-- . ⑦  *ᴄᴏɴᴠᴇʀᴛ ᴍᴇɴᴜ*
-- . ⑧  *ᴏᴛʜᴇʀ ᴍᴇɴᴜ*
-- . ⑨  *ʀᴇᴀᴄᴛɪᴏɴs ᴍᴇɴᴜ*
-- . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
-┗
-┏──────────────⊷
-┊*Hallo my family ${pushwish}*
-┗──────────────⊷
-`;
+      const mainMenu = `┊ ɴᴀᴍᴇ :  NנɐႦυℓσ נႦ`;
 
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: `① Download` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: `② Group` }, type: 1 },
-          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: `③ Fun` }, type: 1 },
-          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: `④ Owner` }, type: 1 },
-          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: `⑤ AI` }, type: 1 },
-          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: `⑥ Anime` }, type: 1 },
-          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: `⑦ Converter` }, type: 1 },
-          { buttonId: `${prefix}other-menu`, buttonText: { displayText: `⑧ Other` }, type: 1 },
-          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: `⑨ Reactions` }, type: 1 },
-          { buttonId: `${prefix}main-menu`, buttonText: { displayText: `⑩ Main` }, type: 1 }
+          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Download |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` Group |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` Fun |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: ` Owner |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: ` AI |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: ` Anime |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: ` Converter |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}other-menu`, buttonText: { displayText: ` Other |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: ` Reactions |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Main |INFORMATION|` }, type: 1 }
         ],
         contextInfo: {
           mentionedJid: [m.sender],
