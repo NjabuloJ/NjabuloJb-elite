@@ -56,13 +56,14 @@ const chatbotHandler = async (m, Matrix) => {
     await Matrix.sendMessage(m.key.remoteJid, { 
       text: aiResponse,
       contextInfo: {
-        mentionedJid: [m.participant || m.key.participant],
+       mentionedJid: [m.participant || m.key.participant],
        forwardingScore: 999,
        isForwarded: true,
        forwardedNewsletterMessageInfo: {
         newsletterJid: '120363249960769123@newsletter',
        newsletterName: "Ethix-MD",
        serverMessageId: 143
+       }
       }
     }, { quoted: {
             key: {
