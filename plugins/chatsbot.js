@@ -57,7 +57,12 @@ const chatbotHandler = async (m, Matrix) => {
       text: aiResponse,
       contextInfo: {
         mentionedJid: [m.participant || m.key.participant],
-         stanzaId: m.key.id      
+       forwardingScore: 999,
+       isForwarded: true,
+       forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363249960769123@newsletter',
+       newsletterName: "Ethix-MD",
+       serverMessageId: 143
       }
     }, { quoted: {
             key: {
