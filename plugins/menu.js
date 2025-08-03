@@ -163,8 +163,8 @@ _click with any button above to access that menu section_
         viewOnce: true,
         buttons: [
           { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` plugins` }, type: 1 },
-          { buttonId: `${prefix}njabulo hello can l ask please`, buttonText: { displayText: ` NjabuloJb AI` }, type: 1 },
-          { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
+          { buttonId: `${prefix}njabulo hello can l ask please`, buttonText: { displayText: ` NjabuloJb |AI` }, type: 1 },
+          { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow family |INFORMATION` }, type: 1 },
         ],
          contextInfo: {
          mentionedJid: [m.sender],
@@ -203,7 +203,7 @@ _click with any button above to access that menu section_
 
       // Send audio as a voice note
       await Matrix.sendMessage(m.from,{ 
-          audio: { url: "https://files.catbox.moe/z06nkt.mp3" },
+          audio: { url: "https://files.catbox.moe/kei09l.mp3" },
           mimetype: "audio/mp4", ptt: true
           }, { quoted: {
             key: {
