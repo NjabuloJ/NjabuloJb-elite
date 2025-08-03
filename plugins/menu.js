@@ -65,7 +65,7 @@ function toFancyFont(text, isUpperCase = false) {
 
 // Image fetch utility
 async function fetchMenuImage() {
-  const imageUrl = "https://files.catbox.moe/omgszj.jpg";
+  const imageUrl = "https://files.catbox.moe/w2mkty.jpg";
   for (let i = 0; i < 3; i++) {
     try {
       const response = await axios.get(imageUrl, { responseType: "arraybuffer" });
@@ -114,36 +114,15 @@ const menu = async (m, Matrix) => {
 ┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
 ┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
 ┗──────────────⊷
-┏           *【 ᴍᴇɴᴜ ʟɪsᴛ 】⇳︎*
-- . ①  *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*
-- . ②  *ɢʀᴏᴜᴘ ᴍᴇɴᴜ*
-- . ③  *ғᴜɴ ᴍᴇɴᴜ*
-- . ④  *ᴏᴡɴᴇʀ ᴍᴇɴᴜ*
-- . ⑤  *ᴀɪ ᴍᴇɴᴜ*
-- . ⑥  *ᴀɴɪᴍᴇ ᴍᴇɴᴜ*
-- . ⑦  *ᴄᴏɴᴠᴇʀᴛ ᴍᴇɴᴜ*
-- . ⑧  *ᴏᴛʜᴇʀ ᴍᴇɴᴜ*
-- . ⑨  *ʀᴇᴀᴄᴛɪᴏɴs ᴍᴇɴᴜ*
-- . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
-┗
-┏──────────────⊷
-┊*Hallo my family ${pushwish}*
-┗──────────────⊷
+
 `;
 
       const messageOptions = {
         viewOnce: true,
         buttons: [
-          {
-            buttonId: `${prefix}download-menu`,
-            buttonText: { displayText: ` ${toFancyFont("All Commands Cmd")}` },
-            type: 1,
-          },
-          {
-            buttonId: `${prefix}converter-menu`,
-            buttonText: { displayText: ` ${toFancyFont("follow Join family")}` },
-            type: 1,
-          },
+          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` plugins` }, type: 1 },
+          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` Njabulo Jb` }, type: 1 },
+          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
         ],
          contextInfo: {
          mentionedJid: [m.sender],
@@ -205,7 +184,7 @@ const menu = async (m, Matrix) => {
       let menuResponse;
 
       switch (cmd) {
-        case "download-menu":
+        case "download-menus":
           menuTitle = "All Commands Cmd";
           menuResponse = `*【download】*
 ${toFancyFont(".①apk")}
