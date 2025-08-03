@@ -132,15 +132,15 @@ const menu = async (m, Matrix) => {
 
 *📋 MENU OPTIONS*
 
-1 🎵DOWNLOAD MENU
+*1* 🎵DOWNLOAD MENU
 
-2 👨‍👨‍👦‍👦GROUP MENU
+*2* 👨‍👨‍👦‍👦GROUP MENU
 
-3 😂FUN MENU
+*3* 😂FUN MENU
 
-4 OWNER MENU
+*4* OWNER MENU
 
-5 🤖AI MENU
+*5* 🤖AI MENU
 
 *6* 🙀ANIME MENU
 
@@ -163,7 +163,7 @@ _click with any button above to access that menu section_
         viewOnce: true,
         buttons: [
           { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` plugins` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: ` Njabulo Jb` }, type: 1 },
+          { buttonId: `${prefix}NjabuloJb Ai`, buttonText: { displayText: ` NjabuloJb AI` }, type: 1 },
           { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
         ],
          contextInfo: {
@@ -228,8 +228,7 @@ _click with any button above to access that menu section_
       switch (cmd) {
         case "download-menu":
           menuTitle = "All Commands Cmd";
-          menuResponse = `*【download】*
-channel
+          menuResponse = `.
 `;
           
         break;
@@ -241,9 +240,12 @@ channel
       // Format the full response
       const fullResponse = `
       ${menuResponse}
-*Hallo : ${m.pushName}*
 
-        *follow Join family*
+      
+*📅 Date*: ${xdate}
+*⏰ Time*: ${xtime}
+*⚙️ Prefix*: ${prefix}
+*🌐 Mode*: ${mode}
 `;
 
        if (menuImage) {
