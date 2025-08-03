@@ -42,7 +42,7 @@ _______powered by silva tech____________
 
   const msg = generateWAMessageFromContent(m.from, {
     viewOnceMessage: {
-      viewOnce: true,
+      viewOnceMessage: true,
       message: {
         messageContextInfo: {
           deviceListMetadata: {},
@@ -56,6 +56,7 @@ _______powered by silva tech____________
             text: "© Powered By 𝕊𝕀𝕃𝕍𝔸"
           }),
           header: proto.Message.InteractiveMessage.Header.create({
+            viewOnce: true,
             title: "",
             gifPlayback: true,
             subtitle: "",
