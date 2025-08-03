@@ -109,10 +109,15 @@ const menu = async (m, Matrix) => {
     if (validCommands.includes(cmd)) {
       const mainMenu = `
 ┏──────────────⊷
-┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
-┊ ᴍᴏᴅᴇ : *[ ${mode} ]*
-┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
-┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
+┊ name :  *NנɐႦυℓσ נႦ*
+┊ mode : *[ ${mode} ]*
+Total Commands : ${totalCommands}
+ Platform: ${os.platform()}
+│ Memory: ${freeMemoryBytes} / ${totalMemoryBytes}
+│ Uptime: ${runMessage}
+│ Date: ${xdate}
+│ Time*: ${xtime} (EAT)
+┊ prefix : * [ ${prefix} ]*
 ┗──────────────⊷
 
 `;
