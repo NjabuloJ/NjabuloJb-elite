@@ -57,16 +57,14 @@ const chatbotHandler = async (m, Matrix) => {
       text: aiResponse,
       contextInfo: {
         mentionedJid: [m.participant || m.key.participant],
-          externalAdReply: {
+         stanzaId: m.key.id,
           showAdAttribution: true, // Marks as an ad
           title: "hy",
           body: "3",
           sourceUrl: "https://github.com/xhclintohn/Toxic-MD",
           mediaType: 1,
          renderLargerThumbnail: true,
-        mediaUrl: "https://files.catbox.moe/zaqn1j.jpg",
-          }
-        }
+        mediaUrl: "https://files.catbox.moe/zaqn1j.jpg",      
       }
     }, { quoted: m });
 
