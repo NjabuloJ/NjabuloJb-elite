@@ -94,8 +94,8 @@ const menu = async (m, Matrix) => {
           { buttonId: `${prefix}converter-menu`, buttonText: { displayText: ` Converter |INFORMATION|` }, type: 1 },
           { buttonId: `${prefix}other-menu`, buttonText: { displayText: ` Other |INFORMATION|` }, type: 1 },
           { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: ` Reactions |INFORMATION|` }, type: 1 },
-          { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Main |INFORMATION|` }, type: 1 }
-          { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow Join family |INFORMATION|` }, type: 1 }
+          { buttonId: `${prefix}main-menu`, buttonText: { displayText: ` Main |INFORMATION|` }, type: 1 },
+          { buttonId: `${prefix}channel-menu`, buttonText: { displayText: ` Follow Join family |INFORMATION|` }, type: 1 },
         ],
         contextInfo: {
           mentionedJid: [m.sender],
