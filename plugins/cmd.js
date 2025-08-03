@@ -81,27 +81,7 @@ const menu = async (m, Matrix) => {
     // Handle main menu
     if (validCommands.includes(cmd)) {
       const mainMenu = `
-┏──────────────⊷
-┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
-┊ ᴍᴏᴅᴇ : *[ ${mode} ]*
-┊ ᴘʀᴇғɪx : * [ ${prefix} ]*
-┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
-┗──────────────⊷
-┏           *【 ᴍᴇɴᴜ ʟɪsᴛ 】⇳︎*
-- . ①  *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*
-- . ②  *ɢʀᴏᴜᴘ ᴍᴇɴᴜ*
-- . ③  *ғᴜɴ ᴍᴇɴᴜ*
-- . ④  *ᴏᴡɴᴇʀ ᴍᴇɴᴜ*
-- . ⑤  *ᴀɪ �ᴇɴᴜ*
-- . ⑥  *ᴀɴɪᴍᴇ ᴍᴇɴᴜ*
-- . ⑦  *ᴄᴏɴᴠᴇʀᴛ ᴍᴇɴᴜ*
-- . ⑧  *ᴏᴛʜᴇʀ ᴍᴇɴᴜ*
-- . ⑨  *ʀᴇᴀᴄᴛɪᴏɴs ᴍᴇɴᴜ*
-- . ⑩  *ᴍᴀɪɴ ᴍᴇɴᴜ*
-┗
-┏──────────────⊷
-┊*Hallo my family ${pushwish}*
-┗──────────────⊷
+> available button cmd click you want
 `;
 
       const messageOptions = {
@@ -133,7 +113,6 @@ const menu = async (m, Matrix) => {
       // Send menu with or without image
       if (menuImage) {
         await Matrix.sendMessage(m.from, { 
-          image: menuImage,
           caption: mainMenu,
           ...messageOptions
         }, { 
