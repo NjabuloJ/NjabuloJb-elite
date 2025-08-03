@@ -22,17 +22,17 @@ const time2 = moment().tz("Africa/Nairobi").format("HH:mm:ss");
 let pushwish = "";
 
 if (time2 < "05:00:00") {
-  pushwish = `Good Morning 🌄`;
+  pushwish = `🌄Good Morning`;
 } else if (time2 < "11:00:00") {
-  pushwish = `Good Morning 🌄`;
+  pushwish = `🌄Good Morning`;
 } else if (time2 < "15:00:00") {
-  pushwish = `Good Afternoon 🌅`;
+  pushwish = `🌅Good Afternoon`;
 } else if (time2 < "18:00:00") {
-  pushwish = `Good Evening 🌃`;
+  pushwish = `🌃Good Evening`;
 } else if (time2 < "19:00:00") {
-  pushwish = `Good Evening 🌃`;
+  pushwish = `🌃Good Evening`;
 } else {
-  pushwish = `Good Night 🌌`;
+  pushwish = `🌌Good Night`;
 }
 
 // Fancy font utility
@@ -120,7 +120,7 @@ const menu = async (m, Matrix) => {
 ┌─❖
 │ Njabulo Jb    
 └┬❖  
-┌┤ 🌅 ${pushwish} 
+┌┤  ${pushwish} 
 │└────────┈⳹  
 │🕵️ ᴜsᴇʀ ɴᴀᴍᴇ: *${m.pushName}*
 │📅 ᴅᴀᴛᴇ: *${xdate}*
@@ -132,33 +132,27 @@ const menu = async (m, Matrix) => {
 
 *📋 MENU OPTIONS*
 
-*1.* 🌐 OUR WEB
+1 🎵DOWNLOAD MENU
 
-*2.* 🎵 RANDOM SONG
+2 👨‍👨‍👦‍👦GROUP MENU
 
-*3.* 📢 UPDATES
+3 😂FUN MENU
 
-*4.* 🤖 AI MENU
+4 OWNER MENU
 
-*5.* ⚽ SPORTS MENU
+5 🤖AI MENU
 
-*6.* 📥 DOWNLOAD MENU
+*6* 🙀ANIME MENU
 
-*7.* 🛠️ HEROKU MENU
+*7* 💬CONVERTER MENU
 
-*8.* 💬 CONVERSATION MENU
+*8* ♻️OTHER MENU
 
-*9.* 😂 FUN MENU
+*9* 📜REACTIONS MENU
 
-*10.* 🌍 GENERAL MENU
+*10* 📥MAIN MENU
 
-*11.* 👨‍👨‍👦‍👦 GROUP MENU
-
-*12.* 💻 BOT_INFO MENU
-
-*13.* 🔞 ADULT MENU
-
-_Reply with any number above to access that menu section_
+_click with any button above to access that menu section_
 
 
 > ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ
@@ -247,15 +241,9 @@ channel
       // Format the full response
       const fullResponse = `
       ${menuResponse}
-Hallo :
-my name is Njabulo Jb
-development bot from Botswana 🇧🇼
+*Hallo : ${m.pushName}*
 
-support me guys
-tanks you use Njabulo Jb button bot
-
-
-> ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ
+        *follow Join family*
 `;
 
        if (menuImage) {
