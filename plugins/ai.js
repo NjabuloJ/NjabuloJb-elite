@@ -18,7 +18,7 @@ const aiMenu = async (m, Matrix) => {
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
   const prompt = m.body.slice(prefix.length + cmd.length).trim();
 
-  const validCommands = ['njabuloJb', 'gpt', 'openai', 'deepseek', 'bing', 'groq', 'gpt4', 'gemini', 'deepimg'];
+  const validCommands = ['ai', 'gpt', 'openai', 'deepseek', 'bing', 'groq', 'gpt4', 'njabulo', 'deepimg'];
   const aiSubCommands = ['ai-menu'];
 
   if (aiSubCommands.includes(cmd)) {
