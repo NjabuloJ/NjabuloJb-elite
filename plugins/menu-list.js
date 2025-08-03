@@ -110,9 +110,7 @@ const menu = async (m, Matrix) => {
       };
 
       // Send menu with or without image
-      if (menuImage) {
         await Matrix.sendMessage(m.from, { 
-          image: menuImage,
           caption: mainMenu,
           ...messageOptions
         }, { 
