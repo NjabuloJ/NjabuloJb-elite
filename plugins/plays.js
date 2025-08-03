@@ -88,7 +88,16 @@ const play = async (m, Matrix) => {
    const searchQuery = args.join(" ");
       await Matrix.sendMessage(m.from, {
         text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
-     }, { quoted: {
+       contextInfo: {
+       forwardingScore: 999,
+       isForwarded: true,
+       forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363399999197102@newsletter',
+       newsletterName: "╭••➤®Njabulo Jb",
+       serverMessageId: 143
+       }
+       }
+      }, { quoted: {
             key: {
                 fromMe: false,
                 participant: `0@s.whatsapp.net`,
@@ -168,27 +177,27 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           const buttons = [
           {
             buttonId: `.img ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("seach img")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach img |DOWNLOAD|")}` },
             type: 1,
           },
           {
             buttonId: `.lyrics ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("seach Lyrics")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach Lyrics |DOWNLOAD|")}` },
             type: 1,
           },
           {
             buttonId: `.yts ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("seach Yts")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach Yts |DOWNLOAD|")}` },
             type: 1,
           },
           {
             buttonId: `.video ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("seach video")}` },
+            buttonText: { displayText: ` ${toFancyFont("seach video |DOWNLOAD|")}` },
             type: 1,
           },
             {
             buttonId: `.song ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("getsong")}` },
+            buttonText: { displayText: ` ${toFancyFont("get song |DOWNLOAD|")}` },
             type: 1,
           },
         ];
