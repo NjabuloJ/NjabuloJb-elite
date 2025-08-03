@@ -64,7 +64,21 @@ const modeCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Back off, scrub! Only Toxic-MD’s king can mess with this!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Back off, scrub! Only Njabulo Jb’s king can mess with this!")}`, 
+      ...messageOptions 
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!text) {
@@ -82,7 +96,21 @@ const modeCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, genius, tell Toxic-MD what mode! Use public or private, dumbass!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Yo, genius, tell Njabulo Jb what mode! Use public or private, dumbass!")}`,
+      ...messageOptions
+   }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     if (!["public", "private"].includes(text)) {
@@ -100,7 +128,21 @@ const modeCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("What’s this trash? Toxic-MD only takes public or private! Get it right, clown!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("What’s this trash? Njabulo Jb only takes public or private! Get it right, clown!")}`,
+      ...messageOptions
+     }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     config.MODE = text;
@@ -124,7 +166,21 @@ const modeCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD choked tryin’ to save that mode, fam! Server’s actin’ weak!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb choked tryin’ to save that mode, fam! Server’s actin’ weak!")}`, 
+      ...messageOptions
+}, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const buttons = [
@@ -141,7 +197,7 @@ const modeCommand = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD flipped to " + text + " mode! You’re runnin’ this shit now, boss!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb flipped to " + text + " mode! You’re runnin’ this shit now, boss!")}`, ...messageOptions }, { quoted: m });
   } catch (error) {
     console.error(`❌ Mode error: ${error.message}`);
     const buttons = [
