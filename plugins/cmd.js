@@ -113,6 +113,7 @@ const menu = async (m, Matrix) => {
       // Send menu with or without image
       if (menuImage) {
         await Matrix.sendMessage(m.from, { 
+           image: menuImage,
           caption: mainMenu,
           ...messageOptions
         }, { 
@@ -132,30 +133,8 @@ const menu = async (m, Matrix) => {
         });
       } else {
         await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
-      }
-
-      // Send audio as a voice note
-      await Matrix.sendMessage(m.from, { 
-        audio: { url: "https://files.catbox.moe/z06nkt.mp3" },
-        mimetype: "audio/mp4", 
-        ptt: true
-      }, { 
-        quoted: {
-          key: {
-            fromMe: false,
-            participant: `0@s.whatsapp.net`,
-            remoteJid: "status@broadcast"
-          },
-          message: {
-            contactMessage: {
-              displayName: "✆︎NנɐႦυℓσ נႦ verified",
-              vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
-            }
-          }
-        }
-      });
-    }
-  
+         }
+    
     // Handle sub-menu commands
     if (subMenuCommands.includes(cmd)) {
       let menuTitle;
