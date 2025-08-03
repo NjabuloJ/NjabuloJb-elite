@@ -67,7 +67,7 @@ const menu = async (m, Matrix) => {
     const mode = config.MODE === "public" ? "public" : "private";
     const totalCommands = 70;
 
-    const validCommands = ["men"];
+    const validCommands =  ["list", "help", "menu"];
     const subMenuCommands = [
       "download-menu", "converter-menu", "ai-menu", "tools-menu",
       "group-menu", "search-menu", "main-menu", "owner-menu",
@@ -129,28 +129,6 @@ const menu = async (m, Matrix) => {
           },
         },
       };
-
-      // Send menu with or without image
-      if (menuImage) {
-        await Matrix.sendMessage(m.from, { 
-          image: menuImage,
-          caption: mainMenu,
-          ...messageOptions
-        }, { 
-          quoted: {
-            key: {
-              fromMe: false,
-              participant: `0@s.whatsapp.net`,
-              remoteJid: "status@broadcast"
-            },
-            message: {
-              contactMessage: {
-                displayName: "✆︎NנɐႦυℓσ נႦ verified",
-                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
-              }
-            }
-          }
-        });
       } else {
         await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
       }
