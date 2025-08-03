@@ -93,9 +93,20 @@ const tourl = async (m, Matrix) => {
       return Matrix.sendMessage(m.from, {
         text: `*${toFancyFont("PLEASE QUOTE AN IMAGE, VIDEO OR AUDIO")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
-
     const loadingMessages = [
       "*「▰▱▱▱▱▱▱▱▱▱」*",
       "*「▰▰▱▱▱▱▱▱▱▱」*",
@@ -115,8 +126,20 @@ const tourl = async (m, Matrix) => {
     const { key } = await Matrix.sendMessage(
       m.from,
       { text: `*${toFancyFont("UPLOADING MEDIA")}... ${loadingMessages[currentMessageIndex]}*` },
-      { quoted: m }
-    );
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+  }
 
     const loadingInterval = setInterval(async () => {
       currentMessageIndex = (currentMessageIndex + 1) % loadingMessageCount;
@@ -140,7 +163,19 @@ const tourl = async (m, Matrix) => {
       throw Matrix.sendMessage(m.from, {
         text: `*${toFancyFont("FAILED TO DOWNLOAD MEDIA")}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const fileSizeMB = media.length / (1024 * 1024);
@@ -156,7 +191,19 @@ const tourl = async (m, Matrix) => {
       return Matrix.sendMessage(m.from, {
         text: `*${toFancyFont(`FILE TOO BIG, MAX IS ${MAX_FILE_SIZE_MB}MB`)}`,
         ...messageOptions
-      }, { quoted: m });
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
 
     const mediaUrl = await uploadMedia(media);
@@ -174,9 +221,19 @@ const tourl = async (m, Matrix) => {
       {
         text: `*${toFancyFont("MEDIA UPLOADED SUCCESSFULLY")}`,
         ...messageOptions
-      },
-      { quoted: m }
-    );
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     const mediaType = getMediaType(m.quoted.mtype);
     if (mediaType === "audio") {
@@ -184,18 +241,38 @@ const tourl = async (m, Matrix) => {
         m.from,
         {
           text: `*${toFancyFont("AUDIO URL: ")}${mediaUrl}`,
-        },
-        { quoted: m }
-      );
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     } else {
       await Matrix.sendMessage(
         m.from,
         {
           [mediaType]: { url: mediaUrl },
           caption: `*${toFancyFont(`${mediaType} URL: `)}${mediaUrl}`,
-        },
-        { quoted: m }
-      );
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
   } catch (error) {
     clearInterval(loadingInterval);
