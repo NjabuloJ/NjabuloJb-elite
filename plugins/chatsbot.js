@@ -57,16 +57,21 @@ const chatbotHandler = async (m, Matrix) => {
       text: aiResponse,
       contextInfo: {
         mentionedJid: [m.participant || m.key.participant],
-         stanzaId: m.key.id,
-          showAdAttribution: true, // Marks as an ad
-          title: "hy",
-          body: "3",
-          sourceUrl: "https://github.com/xhclintohn/Toxic-MD",
-          mediaType: 1,
-         renderLargerThumbnail: true,
-        mediaUrl: "https://files.catbox.moe/zaqn1j.jpg",      
+         stanzaId: m.key.id      
       }
-    }, { quoted: m });
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
   } catch (error) {
     console.error('Chatbot Error:', error);
