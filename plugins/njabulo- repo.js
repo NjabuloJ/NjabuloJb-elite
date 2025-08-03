@@ -143,27 +143,21 @@ is alive *(24/8)* online✓
 
       const messageOptions = {
         viewOnce: true,
+         const messageOptions = {
+        viewOnce: true,
         buttons: [
-          {
-            buttonId: `${prefix}menu`,
-            buttonText: { displayText: `📃 ${toFancyFont("alive")}` },
-            type: 1,
-          },
-          {
-            buttonId: `${prefix}script`,
-            buttonText: { displayText: `📃 ${toFancyFont("script")}` },
-            type: 1,
-          },
+          { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` pair` }, type: 1 },
+          { buttonId: `${prefix}menu`, buttonText: { displayText: ` menu` }, type: 1 },
+          { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
         ],
-        contextInfo: {
-          mentionedJid: [m.sender],
-          externalAdReply: {
-          title: "Ⴆყ NנɐႦυℓσ נႦ",
-          body: `${pushwish}`,
-          thumbnailUrl: "https://whatsapp.com/channel/0029VbAckOZ7tkj92um4KN3u",
-           sourceUrl: "https://whatsapp.com/channel/0029VbAckOZ7tkj92um4KN3u",
-           mediaType: 1,
-           showAdAttribution: true
+         contextInfo: {
+         mentionedJid: [m.sender],
+           forwardingScore: 999,
+           isForwarded: true,
+           forwardedNewsletterMessageInfo: {
+           newsletterJid: '120363399999197102@newsletter',
+           newsletterName: "╭••➤®Njabulo Jb",
+           serverMessageId: 
           },
         },
       };
