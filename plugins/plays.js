@@ -202,7 +202,6 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         ];
         const messageOptions = {
-          image: { url: song.title },
           viewOnce: true,
           buttons,
           contextInfo: {
@@ -210,6 +209,7 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         };
         await Matrix.sendMessage(m.from, {
+          image: { url: song.title },
           text: songInfo,
           ...messageOptions,
           }, { quoted: {
