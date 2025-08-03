@@ -187,7 +187,6 @@ is alive *(24/8)* online✓
                 }
             }
         } });
-      }
       } else {
         await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
        }
