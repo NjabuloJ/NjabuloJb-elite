@@ -145,7 +145,8 @@ is alive *(24/8)* online✓
         viewOnce: true,
          const messageOptions = {
         viewOnce: true,
-        buttons: [
+        buttons:
+          [
           { buttonId: `${prefix}download-menus`, buttonText: { displayText: ` pair` }, type: 1 },
           { buttonId: `${prefix}menu`, buttonText: { displayText: ` menu` }, type: 1 },
           { buttonId: `${prefix}download-menu`, buttonText: { displayText: ` Follow Join family` }, type: 1 },
