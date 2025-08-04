@@ -1,4 +1,4 @@
-# 🚧 UNDER MAINTENANCE 🚧
+#  [UNDER MAINTENANCE]
 
 > Major upgrade in progress - Expect version 5.0 with enhanced AI capabilities
 
@@ -10,7 +10,7 @@
 - Pending  [░░░░░░░░░░░░░░░░░░░░░░] 60%
 ```
 
-## ⏳ Timeline
+##  [Timeline]
 ```mermaid
 gantt
     title Maintenance Schedule
