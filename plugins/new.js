@@ -17,7 +17,7 @@ const alive = async (m, Matrix) => {
   const str = `*🤖 Bot Status: Online*\n*⏳ Uptime: ${timeString}*`;
 
   await Matrix.sendMessage(m.from, {
-    caption: str,
+    text: str,
     contextInfo: {
       mentionedJid: [m.sender],
       forwardingScore: 999,
