@@ -94,9 +94,30 @@ async function handleChatbotResponse(m, Matrix) {
         const aiResponse = response.data?.result || "I couldn't process that request.";
 
         await Matrix.sendMessage(m.key.remoteJid, {
-            text: aiResponse,
-            mentions: [m.key.participant || m.key.remoteJid]
-        }, { quoted: m });
+        text: aiResponse,  
+        contextInfo: {
+         mentionedJid: [m.participant || m.key.participant],
+         forwardingScore: 999,
+         isForwarded: true,
+         forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363399999197102@newsletter',
+         newsletterName: "╭••➤®Njabulo Jb",
+         serverMessageId: 143
+          }
+         }
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "Njabulo Jb AI",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     } catch (error) {
         console.error('Chatbot error:', error);
