@@ -81,7 +81,7 @@ const tagAll = async (m, gss) => {
       return gss.sendMessage(m.from, { text: `*${toFancyFont("BOT MUST BE AN ADMIN TO USE THIS COMMAND")}`, ...messageOptions });
     }
 
-    if (!senderAdmin) {
+    if (!isCreator) {
       const buttons = [createButton(`.menu`, "Menu")];
       const messageOptions = {
         buttons,
