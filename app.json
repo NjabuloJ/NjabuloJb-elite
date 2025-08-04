@@ -92,6 +92,11 @@
       "required": false,
       "value": "false"
     },
+     "WELCOME": {
+      "description": "make it true if you want to enable auto welcome",
+      "required": false,
+      "value": "true" 
+      },
     "REJECT_CALL": {
       "description": "make it true if you want to reject call",
       "required": false,
