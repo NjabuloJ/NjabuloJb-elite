@@ -21,16 +21,23 @@ export default async function GroupParticipants(sock, { id, participants, action
                     const joinDate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY');
                     const membersCount = metadata.participants.length;
             sock.sendMessage(id, {
-               text: `> Hello @${userName}! Welcome to *${metadata.subject}*.\n> You are the ${membersCount}th member.\n> Joined at: ${joinTime} on ${joinDate}
-"`, contextInfo: {
+               text: `> Hello @${userName}! Welcome to *${metadata.subject}*.\n> You are the ${membersCount}th member.\n> Joined at: ${joinTime} on ${joinDate}"`,  
+               contextInfo: {
                   mentionedJid: [jid],
+                  isForwarded: true,
+                  forwardedNewsletterMessageInfo: {
+                  newsletterJid: '120363345407274799@newsletter',
+                  newsletterName: "╭••➤®Njabulo Jb",
+                  serverMessageId: 143,
+                  },
+                  forwardingScore: 999, // Score to indicate it has been forwarded
                   externalAdReply: {
-                     title: `Welcome`,
-                     mediaType: 1,
-                     previewType: 0,
-                     renderLargerThumbnail: true,
-                     thumbnailUrl: metadata.subject,
-                     sourceUrl: 'https://sid-bhai.vercel.app'
+                  title: "ɳᴊᴀʙᴜʟᴏ ᴊʙ σғғɪᴄᴇ",
+                  body: "ɴᴊᴀʙᴜʟᴏ ᴊʙ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡʜᴀᴛꜱᴀᴩᴩ ʙᴏᴛ",
+                  thumbnailUrl: 'https://files.catbox.moe/jkzixp.jpg', // Add thumbnail URL if required 
+                  sourceUrl: 'https://whatsapp.com/channel/0029VarYP5iAInPtfQ8fRb2T', // Add source URL if necessary
+                  mediaType: 1,
+                  renderLargerThumbnail: true 
                   }
                }
             })
@@ -42,13 +49,21 @@ export default async function GroupParticipants(sock, { id, participants, action
             sock.sendMessage(id, {
                text: `> Goodbye @${userName} from ${metadata.subject}.\n> We are now ${membersCount} in the group.\n> Left at: ${leaveTime} on ${leaveDate}"`, contextInfo: {
                   mentionedJid: [jid],
+                  isForwarded: true,
+                  forwardedNewsletterMessageInfo: {
+                  newsletterJid: '120363345407274799@newsletter',
+                  newsletterName: "╭••➤®Njabulo Jb",
+                  serverMessageId: 143,
+                  },
+                  forwardingScore: 999, // Score to indicate it has been forwarded
                   externalAdReply: {
-                     title: `Leave`,
-                     mediaType: 1,
-                     previewType: 0,
-                     renderLargerThumbnail: true,
-                     thumbnailUrl: profile,
-                     sourceUrl: 'https://sid-bhai.vercel.app'
+                  title: "leave",
+                  body: "Goodbye will gona miss you🤬",
+                  thumbnailUrl: profile,
+                  sourceUrl: 'https://whatsapp.com/channel/0029VarYP5iAInPtfQ8fRb2T', // Add source URL if necessary
+                  mediaType: 1,
+                  renderLargerThumbnail: true 
+                  
                   }
                }
             })
