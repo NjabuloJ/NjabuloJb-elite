@@ -54,7 +54,7 @@ const tagAll = async (m, gss) => {
     const validCommands = ['tagall'];
     if (!validCommands.includes(cmd)) return;
 
-    if (!m.isGroup) {
+    if (!senderAdmin) {
       const buttons = [createButton(`.menu`, "Menu")];
       const messageOptions = {
         buttons,
