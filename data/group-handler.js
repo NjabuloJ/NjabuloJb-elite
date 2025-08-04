@@ -26,21 +26,33 @@ export default async function GroupParticipants(sock, { id, participants, action
                   mentionedJid: [jid],
                   isForwarded: true,
                   forwardedNewsletterMessageInfo: {
-                  newsletterJid: '120363345407274799@newsletter',
+                  newsletterJid: '120363399999197102@newsletter',
                   newsletterName: "╭••➤®Njabulo Jb",
                   serverMessageId: 143,
                   },
                   forwardingScore: 999, // Score to indicate it has been forwarded
                   externalAdReply: {
-                  title: "ɳᴊᴀʙᴜʟᴏ ᴊʙ σғғɪᴄᴇ",
-                  body: "ɴᴊᴀʙᴜʟᴏ ᴊʙ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡʜᴀᴛꜱᴀᴩᴩ ʙᴏᴛ",
-                  thumbnailUrl: 'https://files.catbox.moe/jkzixp.jpg', // Add thumbnail URL if required 
+                  title: "welcome",
+                  body: "welcome my friend thank you join family group",
+                  thumbnailUrl: profile, 
                   sourceUrl: 'https://whatsapp.com/channel/0029VarYP5iAInPtfQ8fRb2T', // Add source URL if necessary
                   mediaType: 1,
                   renderLargerThumbnail: true 
                   }
                }
-            })
+            }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
          } else if (action == "remove" && config.WELCOME ) {
            const userName = jid.split('@')[0];
                     const leaveTime = moment.tz('Asia/Kolkata').format('HH:mm:ss');
@@ -66,7 +78,19 @@ export default async function GroupParticipants(sock, { id, participants, action
                   
                   }
                }
-            })
+            }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
          }
       }
    } catch (e) {
