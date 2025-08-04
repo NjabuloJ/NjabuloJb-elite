@@ -54,7 +54,7 @@ const tagAll = async (m, gss) => {
     const validCommands = ['tagall'];
     if (!validCommands.includes(cmd)) return;
 
-    if (!senderAdmin) {
+    if (!m.isGroup) {
       const buttons = [createButton(`.menu`, "Menu")];
       const messageOptions = {
         buttons,
@@ -70,7 +70,7 @@ const tagAll = async (m, gss) => {
     const botAdmin = participants.find(p => p.id === botNumber)?.admin;
     const senderAdmin = participants.find(p => p.id === m.sender)?.admin;
 
-    if (!botAdmin) {
+    if (!isCreator) {
       const buttons = [createButton(`.promote`, "Promote")];
       const messageOptions = {
         buttons,
