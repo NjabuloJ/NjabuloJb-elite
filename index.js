@@ -86,9 +86,7 @@ async function handleChatbotToggle(m, Matrix) {
                 }
             }
         } });
-    }, { quoted: m });
-}
-
+        }
 async function handleChatbotResponse(m, Matrix) {
     try {
         const messageText = m.message?.conversation || 
