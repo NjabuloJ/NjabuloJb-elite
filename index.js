@@ -59,20 +59,33 @@ async function handleChatbotToggle(m, Matrix) {
     const buttons = [
         {
             buttonId: 'enable_chatbot',
-            buttonText: { displayText: CHATBOT_ENABLED ? '❌ Disable' : '✅ Enable' },
+            buttonText: { displayText: CHATBOT_ENABLED ? 'Disable |INFORMATION|' : 'Enable |INFORMATION`' },
             type: 1
         },
         {
             buttonId: 'chatbot_status',
-            buttonText: { displayText: '📊 Status' },
+            buttonText: { displayText: 'Status |INFORMATION|' },
             type: 1
         }
     ];
 
     await Matrix.sendMessage(m.key.remoteJid, {
-        text: `🤖 *Chatbot Status:* ${CHATBOT_ENABLED ? '🟢 ACTIVE' : '🔴 DISABLED'}\n\n_Powered by Groq AI_`,
+        text: `🤖 *Chatbot Status:* ${CHATBOT_ENABLED ? '🟢 ACTIVE' : '🔴 DISABLED'}\n\n_Powered by Njabulo Jb AI_`,
         buttons,
         footer: config.BOT_NAME || 'Mercedes'
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }, { quoted: m });
 }
 
