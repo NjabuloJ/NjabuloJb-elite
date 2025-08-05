@@ -46,7 +46,21 @@ const apkDownloader = async (m, Matrix) => {
   if (!["apk", "app", "application"].includes(cmd)) return;
   if (!query) {
     const usageText = `❌ *${toFancyFont("Usage")}:* ${prefix}${toFancyFont("apk")} <${toFancyFont("App Name")}>`;
-    return Matrix.sendMessage(m.from, { text: usageText }, { quoted: m });
+    return Matrix.sendMessage(m.from, { 
+      text: usageText 
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
   }
 
   try {
@@ -54,6 +68,22 @@ const apkDownloader = async (m, Matrix) => {
 
     const apiUrl = `http://ws75.aptoide.com/api/7/apps/search/query=${encodeURIComponent(query)}/limit=1`;
     const { data } = await axios.get(apiUrl);
+      wait Matrix.sendMessage(m.from, { 
+      text: `wait download`,
+    }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
+  }
 
     if (!data?.datalist?.list?.length) {
       const noResultsText = `⚠️ *${toFancyFont("No results found for the given app name")}.`;
