@@ -115,11 +115,22 @@ const tourl = async (m, Matrix) => {
 
     const loadingInterval = setInterval(async () => {
       currentMessageIndex = (currentMessageIndex + 1) % loadingMessageCount;
-      await Matrix.sendMessage(
-        m.from,
-        { text: `*${toFancyFont("Toxic-MD")} uploadin’ your media...* ${loadingMessages[currentMessageIndex]} 🚀` },
-        { quoted: m, messageId: key }
-      );
+      await Matrix.sendMessage(m.from,{ 
+          
+        text: `*${toFancyFont("Njabulo Jb")} uploadin’ your media...* ${loadingMessages[currentMessageIndex]} 🚀` 
+      }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }, 500);
 
     const media = await m.quoted.download();
@@ -133,7 +144,7 @@ const tourl = async (m, Matrix) => {
       clearInterval(loadingInterval);
       const buttons = [
         {
-          buttonId: 'menu',
+          buttonId: '.menu',
           buttonText: { displayText: toFancyFont('Menu') },
           type: 1,
         },
@@ -149,7 +160,7 @@ const tourl = async (m, Matrix) => {
     clearInterval(loadingInterval);
     const buttons = [
       {
-        buttonId: 'menu',
+        buttonId: '.menu',
         buttonText: { displayText: toFancyFont('Menu') },
         type: 1,
       },
@@ -159,9 +170,19 @@ const tourl = async (m, Matrix) => {
       {
         text: `*${toFancyFont("Njabulo Jb")} upload done, fam!* ✅`,
         buttons,
-      },
-      { quoted: m }
-    );
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
     const mediaType = getMediaType(m.quoted.mtype);
     if (mediaType === "audio") {
