@@ -12,7 +12,7 @@ const alive = async (m, Matrix) => {
   const prefix = config.PREFIX;
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
 
-  if (!['ali', 'up', 'run'].includes(cmd)) return;
+  if (!['pinteresg', 'giticlone', 'gdrive', 'ytmp3', 'ytmp4', 'song', 'video', 'ytmp4doc', 'ytmp4doc'].includes(cmd)) return;
 
   const str = `*🧠: ${timeString}*`;
 
