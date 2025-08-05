@@ -60,6 +60,7 @@ const apkDownloader = async (m, Matrix) => {
     ];
 
     return Matrix.sendMessage(m.from, { 
+      image: { url: "https://files.catbox.moe/pf270b.jpg" },
       text: usageText,
       buttons,
       contextInfo: {
