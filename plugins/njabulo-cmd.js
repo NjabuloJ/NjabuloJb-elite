@@ -12,7 +12,7 @@ const alive = async (m, Matrix) => {
   const prefix = config.PREFIX;
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
 
-  if (!['setppgc', 'setdesc', 'group', 'gcsetting',  'hidetag', 'getbio', 'antitoxc', 'anime', 'animepic', 'animequote', 'animewall', 'waifu', 'husdando', 'neko', 'shinobu', 'megumin', 'awoo', 'trap', 'blowjob', 'attp', 'attp2', 'attp3', 'ebinary', 'emojimix', 'toing', 'tovid', 'togif', 'tnyurl', 'pinteresg', 'giticlone', 'gdrive', 'ytmp3', 'ytmp4', 'song', 'video', 'ytmp4doc', 'ytmp4doc', 'gay', 'simp', 'handsome', 'stupid', 'characyer', 'fach', 'truth', 'dare', 'flirt', 'couple', 'ship', 'quote', 'roll'].includes(cmd)) return;
+  if (!['calc', 'tempmail', 'checkmail', 'trt', 'tts', 'readmore', 'styletex', 'weather', 'clock', 'qrcode', 'reador','setppgc', 'setdesc', 'group', 'gcsetting',  'hidetag', 'getbio', 'antitoxc', 'anime', 'animepic', 'animequote', 'animewall', 'waifu', 'husdando', 'neko', 'shinobu', 'megumin', 'awoo', 'trap', 'blowjob', 'attp', 'attp2', 'attp3', 'ebinary', 'emojimix', 'toing', 'tovid', 'togif', 'tnyurl', 'pinteresg', 'giticlone', 'gdrive', 'ytmp3', 'ytmp4', 'song', 'video', 'ytmp4doc', 'ytmp4doc', 'gay', 'simp', 'handsome', 'stupid', 'characyer', 'fach', 'truth', 'dare', 'flirt', 'couple', 'ship', 'quote', 'roll'].includes(cmd)) return;
 
   const str = `*🧠: ${timeString}*`;
 
