@@ -46,8 +46,32 @@ const apkDownloader = async (m, Matrix) => {
   if (!["apk", "app", "application"].includes(cmd)) return;
   if (!query) {
     const usageText = `❌ *${toFancyFont("Usage")}:* ${prefix}${toFancyFont("apk")} <${toFancyFont("App Name")}>`;
+      const buttons = [
+      {
+        buttonId: `.menu`,
+        buttonText: { displayText: `${toFancyFont("Menu |INFORMATION|")}` },
+        type: 1,
+      },
+      {
+        buttonId: `.apk ${query}`,
+        buttonText: { displayText: `${toFancyFont("Search Again |INFORMATION|")}` },
+        type: 1,
+      },
+    ];
+
     return Matrix.sendMessage(m.from, { 
-      text: usageText 
+      text: usageText,
+      buttons,
+      contextInfo: {
+        mentionedJid: [m.sender],
+        forwardingScore: 999,
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: "120363399999197102@newsletter",
+          newsletterName: "╭••➤®Njabulo Jb",
+          serverMessageId: 143,
+        },
+      },
     }, { quoted: {
             key: {
                 fromMe: false,
