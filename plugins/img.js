@@ -28,7 +28,7 @@ const query = m.body.slice(prefix.length + cmd.length).trim();
       const images = [];
 
       for (let i = 0; i < numberOfImages; i++) {
-        const endpoint = `https://archive-ui.tanakadomp.biz.id/ai/bingimg?text=${encodeURIComponent(query)}`;
+        const endpoint = `https://apis.davidcyriltech.my.id/ai/bingimg?text=${encodeURIComponent(query)}`;
         const response = await axios.get(endpoint, { responseType: 'arraybuffer' });
 
         if (response.status === 200) {
