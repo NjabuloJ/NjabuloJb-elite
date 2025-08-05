@@ -47,13 +47,27 @@ const stickerCommandHandler = async (m, gss) => {
   const stickerCommands = ['cry', 'kiss', 'kill', 'kick', 'hug', 'pat', 'lick', 'bite', 'yeet', 'bully', 'bonk', 'wink', 'poke', 'nom', 'slap', 'smile', 'wave', 'awoo', 'blush', 'smug', 'dance', 'happy', 'sad', 'cringe', 'cuddle', 'shinobu', 'handhold', 'glomp', 'highfive'];
 
   if (stickerCommands.includes(cmd)) {
-    const packname = `*${toFancyFont("KHAN-MD")}*`;
+    const packname = `*${toFancyFont("Njabulo Jb")}*`;
     const author = '';
 
     try {
       const { data } = await axios.get(`https://api.waifu.pics/sfw/${cmd}`);
       if (data && data.url) {
-        gss.sendImageAsSticker(m.from, data.url, m, { packname, author });
+        gss.sendImageAsSticker(m.from, data.url, m, {
+          packname: author,
+       }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       } else {
         const buttons = [
           {
