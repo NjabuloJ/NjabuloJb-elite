@@ -1,4 +1,42 @@
 import config from '../config.cjs';
+import pkg, { prepareWAMessageMedia } from "@whiskeysockets/baileys";
+const { generateWAMessageFromContent, proto } = pkg;
+
+function toFancyFont(text, isUpperCase = false) {
+  const fonts = {
+    a: "ᴀ",
+    b: "ʙ",
+    c: "ᴄ",
+    d: "ᴅ",
+    e: "ᴇ",
+    f: "ғ",
+    g: "ɢ",
+    h: "ʜ",
+    i: "ɪ",
+    j: "ᴊ",
+    k: "ᴋ",
+    l: "ʟ",
+    m: "ᴍ",
+    n: "ɴ",
+    o: "ᴏ",
+    p: "ᴘ",
+    q: "ǫ",
+    r: "ʀ",
+    s: "s",
+    t: "ᴛ",
+    u: "ᴜ",
+    v: "ᴠ",
+    w: "ᴡ",
+    x: "x",
+    y: "ʏ",
+    z: "ᴢ",
+  };
+  const formattedText = isUpperCase ? text.toUpperCase() : text.toLowerCase();
+  return formattedText
+    .split("")
+    .map((char) => fonts[char] || char)
+    .join("");
+}
 
 const profileCommand = async (m, Matrix) => {
   const prefix = config.PREFIX;
@@ -22,9 +60,18 @@ const profileCommand = async (m, Matrix) => {
       status = { status: "About not accessible due to user privacy" };
     }
 
+    const buttons = [
+      {
+        buttonId: '.menu',
+        buttonText: { displayText: toFancyFont('Back') },
+        type: 1,
+      },
+    ];
+
     const mess = {
       image: { url: ppUrl },
-      caption: `ɴᴀᴍᴇ: ${name}\nᴀʙᴏᴜᴛ:\n${status.status}`,
+      caption: `*${toFancyFont("Name")}:* ${name}\n*${toFancyFont("About")}:*\n${status.status}`,
+      buttons,
       ...(m.quoted ? { mentions: [sender] } : {}) // Mention only if quoted
     };
 
