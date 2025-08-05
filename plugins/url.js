@@ -86,7 +86,7 @@ const tourl = async (m, Matrix) => {
         },
       ];
       return Matrix.sendMessage(m.from, {
-        text: `*${toFancyFont("Yo, Toxic-MD needs a quoted image, video, or audio, fam!")}* 📸🎥🎵`,
+        text: `*${toFancyFont("Yo, Njabulo Jb needs a quoted image, video, or audio, fam!")}* 📸🎥🎵`,
         buttons,
       }, { quoted: m });
     }
@@ -109,7 +109,7 @@ const tourl = async (m, Matrix) => {
 
     const { key } = await Matrix.sendMessage(
       m.from,
-      { text: `*${toFancyFont("Toxic-MD")} uploadin’ your media...* ${loadingMessages[currentMessageIndex]} 🚀` },
+      { text: `*${toFancyFont("Njabulo Jb")} uploadin’ your media...* ${loadingMessages[currentMessageIndex]} 🚀` },
       { quoted: m }
     );
 
@@ -157,7 +157,7 @@ const tourl = async (m, Matrix) => {
     await Matrix.sendMessage(
       m.from,
       {
-        text: `*${toFancyFont("Toxic-MD")} upload done, fam!* ✅`,
+        text: `*${toFancyFont("Njabulo Jb")} upload done, fam!* ✅`,
         buttons,
       },
       { quoted: m }
@@ -168,7 +168,7 @@ const tourl = async (m, Matrix) => {
       await Matrix.sendMessage(
         m.from,
         {
-          text: `*${toFancyFont("Toxic-MD")} got your audio URL, fam!* 🎵\n*${toFancyFont("URL")}:* ${mediaUrl}`,
+          text: `*${toFancyFont("Njabulo Jb")} got your audio URL, fam!* 🎵\n*${toFancyFont("URL")}:* ${mediaUrl}`,
           buttons,
         },
         { quoted: m }
@@ -178,11 +178,21 @@ const tourl = async (m, Matrix) => {
         m.from,
         {
           [mediaType]: { url: mediaUrl },
-          caption: `*${toFancyFont("Toxic-MD")} got your ${mediaType} URL, fam!* 📸🎥\n*${toFancyFont("URL")}:* ${mediaUrl}`,
+          caption: `*${toFancyFont("Njabulo Jb")} got your ${mediaType} URL, fam!* 📸🎥\n*${toFancyFont("URL")}:* ${mediaUrl}`,
           buttons,
-        },
-        { quoted: m }
-      );
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
     }
   } catch (error) {
     clearInterval(loadingInterval);
@@ -195,7 +205,7 @@ const tourl = async (m, Matrix) => {
       },
     ];
     await Matrix.sendMessage(m.from, {
-      text: `*${toFancyFont("Toxic-MD")} hit a snag uploadin’, fam!* Try again! 😈`,
+      text: `*${toFancyFont("Njabulo Jb")} hit a snag uploadin’, fam!* Try again! 😈`,
       buttons,
     }, { quoted: m });
   }
