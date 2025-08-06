@@ -48,6 +48,7 @@ const ping = async (m, Matrix) => {
     await m.React("📡");
     const end = new Date().getTime();
     const responseTime = (end - start) / 1000;
+    const img = 'https://files.catbox.moe/bw9rme.jpg';
     const text = `*${toFancyFont("Njabulo Jb")}* : ${responseTime.toFixed(2)} s`;
     const buttons = [
       {
@@ -69,8 +70,8 @@ const ping = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from,{ 
-      caption: fs.readFileSync('./media/khan.jpg'),
-      text:text, 
+      image: { url: img },
+      caption:text, 
       ...messageOptions 
           }, { quoted: {
             key: {
