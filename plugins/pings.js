@@ -69,7 +69,7 @@ const ping = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from,{ 
-      image: fs.readFileSync('./media/khan.jpg'),
+      caption: fs.readFileSync('./media/khan.jpg'),
       text:text, 
       ...messageOptions 
           }, { quoted: {
