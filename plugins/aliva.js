@@ -27,8 +27,8 @@ const alive = async (m, Matrix) => {
 
     if (!["alive", "uptime", "runtime"].includes(cmd)) return;
 
-    const reactionEmojis = ["🔥", "💖", "🚀", "💨", "🎯", "🎉", "🌟", "💥", "🕐", "🔹"];
-    const textEmojis = ["💎", "🏆", "⚡", "🎖", "🎶", "🌠", "🌀", "🔱", "🚀", "✩"];
+    const reactionEmojis = ["🏓"];
+    const textEmojis = ["🏓"];
     const reactionEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
     let textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
 
@@ -52,17 +52,11 @@ const alive = async (m, Matrix) => {
           buttonText: { displayText: `${toFancyFont("Menu")}` },
           type: 1,
         },
-      ],
+      ], 
       contextInfo: {
+      viewOnce: true,
+      buttons,
         mentionedJid: [m.sender],
-        externalAdReply: {
-          showAdAttribution: true,
-          title: toFancyFont("Njabulo Jb"),
-          body: toFancyFont("Alive"),
-          sourceUrl: "https://github.com/your-repo",                      
-          mediaType: 1,
-          renderLargerThumbnail: true,
-        },
       },
     };
 
