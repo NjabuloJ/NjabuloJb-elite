@@ -58,6 +58,7 @@ const alive = async (m, Matrix) => {
       buttons,
         mentionedJid: [m.sender],
       },
+      },
     };
 
     await Matrix.sendMessage(m.from, {
