@@ -162,6 +162,7 @@ _click with any button above to access that menu section_
       const messageOptions = {
         viewOnce: true,
         buttons: [
+          { buttonId: `${prefix}men`, buttonText: { displayText: `ᴍᴇɴᴜ ᴄᴏᴍᴍᴀɴᴅꜱ` }, type: 1 },
           { buttonId: `${prefix}njabulo hello can l ask please`, buttonText: { displayText: `ɴᴊᴀʙᴜʟᴏ ᴊʙ ᴀɪ ` }, type: 1 },
           { buttonId: `${prefix}channel-menu`, buttonText: { displayText: `ꜰᴏʟʟᴏᴡ ꜰᴀᴍɪʟy` }, type: 1 },
         ],
