@@ -53,6 +53,8 @@ const play = async (m, Matrix) => {
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const args = m.body.slice(prefix.length + cmd.length).trim().split(" ");
 
+    const img = 'https://files.catbox.moe/84ohd5.jpg';
+
      if (cmd === "play") {
       if (args.length === 0 || !args.join(" ")) {
         const buttons = [
@@ -70,12 +72,31 @@ const play = async (m, Matrix) => {
           },
         };
         return Matrix.sendMessage(m.from, {
-          text: `${toFancyFont("give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
-          ...messageOptions,
-        }, { quoted: m });
+       image: { url: img },
+          caption: `${toFancyFont("€give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
+               contextInfo: {
+       forwardingScore: 999,
+       isForwarded: true,
+       forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363399999197102@newsletter',
+       newsletterName: "╭••➤®Njabulo Jb",
+       serverMessageId: 143
+       }
+               }
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
       }
-
-
    const searchQuery = args.join(" ");
       await Matrix.sendMessage(m.from, {
         text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
