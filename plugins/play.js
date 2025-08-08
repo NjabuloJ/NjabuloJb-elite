@@ -222,6 +222,7 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         };
         await Matrix.sendMessage(m.from, {
+          image: { url: img },
           text: songInfo,
           ...messageOptions,
           }, { quoted: {
