@@ -99,6 +99,7 @@ const menu = async (m, Matrix) => {
     const totalCommands = 70;
 
     const validCommands = ["list", "help", "menu"];
+    await m.React("🏓");
     const subMenuCommands = [
       "channel-menu",
       "converter-menu",
@@ -156,6 +157,7 @@ const menu = async (m, Matrix) => {
 ┇• dbinary
 ┇• emojimix
 ┇• mp3
+┇• scanqr
 └━══════════━┈⊷
 
 ┌━══════════━┈⊷
