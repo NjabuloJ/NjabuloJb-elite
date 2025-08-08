@@ -46,7 +46,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const text = m.body.slice(prefix.length + cmd.length).trim().toLowerCase();
-    const img = 'https://files.catbox.moe/bw9rme.jpg';
+    const img = 'https://files.catbox.moe/fbj2ph.jpg';
 
     if (cmd !== "autostatusreply") return;
 
@@ -54,7 +54,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
       const buttons = [
         {
           buttonId: `.owner`,
-          buttonText: { displayText: `💬${toFancyFont("Contact Owner")}` },
+          buttonText: { displayText: `${toFancyFont("Contact Owner")}` },
           type: 1,
         },
       ];
@@ -88,7 +88,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
       const buttons = [
         {
           buttonId: `.help`,
-          buttonText: { displayText: `💬${toFancyFont("Help")}` },
+          buttonText: { displayText: `${toFancyFont("Help")}` },
           type: 1,
         },
       ];
@@ -101,7 +101,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
       };
       return Matrix.sendMessage(m.from, {
      image: { url: img },
-      caption: `*${toFancyFont("*Yo, braindead, tell Njabulo Jb on or off! Don't just stare!")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on")}`,
+      caption: `*${toFancyFont("*Yo, braindead, tell Njabulo Jb on or off! Don't just stare!*")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on*")}`,
         ...messageOptions 
       }, { quoted: {
             key: {
@@ -122,7 +122,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
       const buttons = [
         {
           buttonId: `.help`,
-          buttonText: { displayText: `💬${toFancyFont("Help")}` },
+          buttonText: { displayText: `${toFancyFont("Help")}` },
           type: 1,
         },
       ];
@@ -172,13 +172,13 @@ const autostatusreplyCommand = async (m, Matrix) => {
           mentionedJid: [m.sender],
         },
       };
-      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb choked tryin' to save that, fam! Server's trash!")}`, ...messageOptions }, { quoted: m });
+      return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb choked tryin' to save that, fam! Server's trash!*")}`, ...messageOptions }, { quoted: m });
     }
 
     const buttons = [
       {
         buttonId: `.menu`,
-        buttonText: { displayText: `💬${toFancyFont("Menu")}` },
+        buttonText: { displayText: `${toFancyFont("Menu")}` },
         type: 1,
       },
     ];
@@ -191,7 +191,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
     };
     await Matrix.sendMessage(m.from, { 
       image: { url: img },
-      caption: `*${toFancyFont("Njabulo Jb auto-status reply flipped to " + text + "! You're runnin' this, boss!")}`,
+      caption: `*${toFancyFont("Njabulo Jb auto-status reply flipped to " + text + "! You're runnin' this, boss!*")}`,
       ...messageOptions
      }, { quoted: {
             key: {
@@ -222,7 +222,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb screwed up somewhere, fam! Hit it again!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb screwed up somewhere, fam! Hit it again!*")}`, ...messageOptions }, { quoted: m });
   }
 };
 
