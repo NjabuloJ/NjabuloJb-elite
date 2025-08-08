@@ -75,6 +75,11 @@ const autorecordingCommand = async (m, Matrix) => {
         buttonId: `.autorecording off`,
         buttonText: { displayText: `${toFancyFont("autorecording off")}` },
         type: 1,
+        },
+      {
+        buttonId: `.channel-menu`,
+        buttonText: { displayText: `${toFancyFont("follow family")}` },
+        type: 1,
       },
     ];
 
