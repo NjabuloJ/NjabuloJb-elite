@@ -8,6 +8,7 @@ const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0
 const text = m.body.slice(prefix.length + cmd.length).trim();
     
     const validCommands = ['qc'];
+    await m.React("🏓");
 
     if (!validCommands.includes(cmd)) return;
 
