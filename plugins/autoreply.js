@@ -46,7 +46,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const text = m.body.slice(prefix.length + cmd.length).trim().toLowerCase();
-const img = 'const img = 'https://files.catbox.moe/bw9rme.jpg';
+    const img = 'https://files.catbox.moe/bw9rme.jpg';
 
     if (cmd !== "autostatusreply") return;
 
