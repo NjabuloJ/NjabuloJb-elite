@@ -11,7 +11,7 @@ const toqr = async (m, gss) => {
 const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
 const text = m.body.slice(prefix.length + cmd.length).trim();
 
-    const validCommands = ['toqr'];
+    const validCommands = ['scanqr'];
 
     if (!validCommands.includes(cmd)) return;
 
@@ -44,9 +44,19 @@ const text = m.body.slice(prefix.length + cmd.length).trim();
         document: medi,
         mimetype: 'application/pdf',
         fileName: 'QRCode.pdf',
-      }, {
-        quoted: m
-      });
+        }, { quoted: {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
+                }
+            }
+        } });
 
       fs.unlinkSync(pdfPath);
     });
