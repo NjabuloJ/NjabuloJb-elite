@@ -75,6 +75,11 @@ const autotypingCommand = async (m, Matrix) => {
         buttonId: `.autotyping off`,
         buttonText: { displayText: `${toFancyFont("autotyping off")}` },
         type: 1,
+        },
+      {
+        buttonId: `.channel-menu`,
+        buttonText: { displayText: `${toFancyFont("follow family")}` },
+        type: 1,
       },
     ];
 
