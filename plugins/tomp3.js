@@ -26,4 +26,4 @@ const text = m.body.slice(prefix.length + cmd.length).trim();
   }
 };
 
-export default tomp3; za
+export default tomp3;
