@@ -52,14 +52,13 @@ const play = async (m, Matrix) => {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const args = m.body.slice(prefix.length + cmd.length).trim().split(" ");
-   const img = 'https://files.catbox.moe/84ohd5.jpg';
 
      if (cmd === "play") {
       if (args.length === 0 || !args.join(" ")) {
         const buttons = [
           {
             buttonId: `.menu`,
-            buttonText: { displayText: `📃${toFancyFont("Menu")}` },
+            buttonText: { displayText: `${toFancyFont("Menu")}` },
             type: 1,
           },
         ];
@@ -71,9 +70,8 @@ const play = async (m, Matrix) => {
           },
         };
         return Matrix.sendMessage(m.from, {
-       image: { url: img },
-          caption: `${toFancyFont("give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
-               contextInfo: {
+       text: `${toFancyFont("give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
+       contextInfo: {
        forwardingScore: 999,
        isForwarded: true,
        forwardedNewsletterMessageInfo: {
@@ -98,8 +96,7 @@ const play = async (m, Matrix) => {
       }
    const searchQuery = args.join(" ");
       await Matrix.sendMessage(m.from, {
-      image: { url: img },
-       caption: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
+       text: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
        contextInfo: {
        forwardingScore: 999,
        isForwarded: true,
@@ -210,7 +207,7 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
             {
             buttonId: `.song ${args.join(" ")}`,
-            buttonText: { displayText: ` ${toFancyFont("getsong")}` },
+            buttonText: { displayText: ` ${toFancyFont("get song")}` },
             type: 1,
           },
         ];
@@ -222,7 +219,6 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         };
         await Matrix.sendMessage(m.from, {
-          image: { url: data.result.title},
           text: songInfo,
           ...messageOptions,
           }, { quoted: {
