@@ -182,7 +182,6 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         ];
         const messageOptions = {
-          image: { url: song.title },
           viewOnce: true,
           buttons,
           contextInfo: {
