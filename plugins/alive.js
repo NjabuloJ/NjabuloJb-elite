@@ -27,8 +27,8 @@ const alive = async (m, Matrix) => {
 
     if (!["alive", "uptime", "runtime"].includes(cmd)) return;
 
-    const reactionEmojis = ["🔥", "💖", "🚀", "💨", "🎯", "🎉", "🌟", "💥", "🕐", "🔹"];
-    const textEmojis = ["💎", "🏆", "⚡", "🎖", "🎶", "🌠", "🌀", "🔱", "🚀", "✩"];
+    const reactionEmojis = ["🏓"];
+    const textEmojis = ["🏓"];
     const reactionEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
     let textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
 
@@ -38,7 +38,7 @@ const alive = async (m, Matrix) => {
 
     await m.React(textEmoji);
 
-    const message = `${toFancyFont("*Njabulo Jb*")}: ${timeString}!`;
+    const message = `${toFancyFont("*Njabulo Jb is 🏓online*")}: ${timeString}!`;
     const img = 'https://files.catbox.moe/fbj2ph.jpg';
     const messageOptions = {
      viewOnce: true,
@@ -51,6 +51,11 @@ const alive = async (m, Matrix) => {
         {
           buttonId: `.menu`,
           buttonText: { displayText: ` ${toFancyFont("Menu")}` },
+          type: 1,
+        },
+         {
+          buttonId: `.channel-menu`,
+          buttonText: { displayText: ` ${toFancyFont("follow family")}` },
           type: 1,
         },
       ],
