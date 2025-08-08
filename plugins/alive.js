@@ -39,6 +39,7 @@ const alive = async (m, Matrix) => {
     await m.React(textEmoji);
 
     const message = `${toFancyFont("*Njabulo Jb*")}: ${timeString}!`;
+    const img = 'https://files.catbox.moe/fbj2ph.jpg';
     const messageOptions = {
      viewOnce: true,
       buttons: [
@@ -66,7 +67,8 @@ const alive = async (m, Matrix) => {
     };
 
     await Matrix.sendMessage(m.from, {
-      text: message,
+      image: { url: img },
+      caption: message,
       ...messageOptions,
     }, { quoted: m });
   } catch (error) {
@@ -86,7 +88,6 @@ const alive = async (m, Matrix) => {
                 }
             }
         } });
-   }
   }
 };
 
