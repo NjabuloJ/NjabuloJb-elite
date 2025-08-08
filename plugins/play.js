@@ -73,7 +73,16 @@ const play = async (m, Matrix) => {
         return Matrix.sendMessage(m.from, {
        image: { url: img },
           caption: `${toFancyFont("give")} ${toFancyFont("me")} ${toFancyFont("a")} ${toFancyFont("song")} ${toFancyFont("name")} ${toFancyFont("or")} ${toFancyFont("keywords")} ${toFancyFont("to")} ${toFancyFont("search")}`,
-          }, { quoted: {
+               contextInfo: {
+       forwardingScore: 999,
+       isForwarded: true,
+       forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363399999197102@newsletter',
+       newsletterName: "╭••➤®Njabulo Jb",
+       serverMessageId: 143
+       }
+               }
+        }, { quoted: {
             key: {
                 fromMe: false,
                 participant: `0@s.whatsapp.net`,
@@ -206,7 +215,6 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         ];
         const messageOptions = {
-          image: { url: song.title },
           viewOnce: true,
           buttons,
           contextInfo: {
@@ -214,7 +222,7 @@ ${toFancyFont("*URL*")}: ${data.result.video_url || song.url}
           },
         };
         await Matrix.sendMessage(m.from, {
-        image: { url: img },
+        image: { url: song.title },
           caption: songInfo,
           ...messageOptions,
           }, { quoted: {
