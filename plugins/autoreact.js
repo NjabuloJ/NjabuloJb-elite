@@ -8,12 +8,13 @@ const autoreactCommand = async (m, Matrix) => {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const text = m.body.slice(prefix.length + cmd.length).trim().toLowerCase();
-
+    const img = 'https://files.catbox.moe/fbj2ph.jpg';
     if (cmd !== "autoreact") return;
 
     if (!isCreator) {
       return Matrix.sendMessage(m.from, {
-        text: `Get the fuck outta here, wannabe! Only *Njabulo Jb*’s boss runs this show! 😤🔪`,
+        image: { url: img },
+        caption: `Get the fuck outta here, wannabe! Only *Njabulo Jb*’s boss runs this show! 😤🔪`,
        }, { quoted: {
             key: {
                 fromMe: false,
@@ -31,7 +32,8 @@ const autoreactCommand = async (m, Matrix) => {
 
     if (!text) {
       return Matrix.sendMessage(m.from, {
-        text: `Yo, dipshit, tell *Njabulo Jb* *on* or *off*! Don’t just stand there! 😆`,
+        image: { url: img },
+        caption: `Yo, dipshit, tell *Njabulo Jb* *on* or *off*! Don’t just stand there! 😆`,
        }, { quoted: {
             key: {
                 fromMe: false,
@@ -48,7 +50,8 @@ const autoreactCommand = async (m, Matrix) => {
     }
     if (!["on", "off"].includes(text)) {
       return Matrix.sendMessage(m.from, {
-        text: `What’s this bullshit? *Njabulo Jb* only takes *on* or *off*, you moron! 🤡`,
+        image: { url: img },
+        caption: `What’s this bullshit? *Njabulo Jb* only takes *on* or *off*, you moron! 🤡`,
       }, { quoted: {
             key: {
                 fromMe: false,
@@ -71,7 +74,8 @@ const autoreactCommand = async (m, Matrix) => {
     } catch (error) {
       console.error(`Error saving config: ${error.message}`);
       return Matrix.sendMessage(m.from, {
-        text: ` *Njabulo Jb* choked tryin’ to save that, fam! Server’s actin’ like a bitch! 😣`,
+        image: { url: img },
+       caption: ` *Njabulo Jb* choked tryin’ to save that, fam! Server’s actin’ like a bitch! 😣`,
       }, { quoted: {
             key: {
                 fromMe: false,
@@ -88,7 +92,8 @@ const autoreactCommand = async (m, Matrix) => {
     }
 
     await Matrix.sendMessage(m.from, {
-      text: `*Njabulo Jb* auto-react flipped to *${text}*! You’re ownin’ this game, boss! 💪🔥`,
+      image: { url: img },
+      caption: `*Njabulo Jb* auto-react flipped to *${text}*! You’re ownin’ this game, boss! 💪🔥`,
     }, { quoted: {
             key: {
                 fromMe: false,
@@ -105,7 +110,8 @@ const autoreactCommand = async (m, Matrix) => {
   } catch (error) {
     console.error(`❌ Autoreact error: ${error.message}`);
     await Matrix.sendMessage(m.from, {
-      text: `*Njabulo Jb* fucked up somewhere, fam! Smash it again! 😈`,
+      image: { url: img },
+     caption: `*Njabulo Jb* fucked up somewhere, fam! Smash it again! 😈`,
     }, { quoted: {
             key: {
                 fromMe: false,
