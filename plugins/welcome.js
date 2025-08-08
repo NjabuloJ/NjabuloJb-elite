@@ -43,13 +43,13 @@ const gcEvent = async (m, Matrix) => {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
     const text = m.body.slice(prefix.length + cmd.length).trim();
-
+    const img = 'https://files.catbox.moe/fbj2ph.jpg';
     if (cmd === "welcome") {
       if (!m.isGroup) {
         const buttons = [
           {
             buttonId: `.help`,
-            buttonText: { displayText: `📃${toFancyFont("Help")}` },
+            buttonText: { displayText: `${toFancyFont("Help")}` },
             type: 1,
           },
         ];
@@ -61,7 +61,8 @@ const gcEvent = async (m, Matrix) => {
           },
         };
         return Matrix.sendMessage(m.from, {
-          text: `*${toFancyFont("This ain’t for lone wolves, fam! Use in a group!")}`,
+          image: { url: img },
+          caption: `*${toFancyFont("This ain’t for lone wolves, fam! Use in a group!*")}`,
           ...messageOptions
          }, { quoted: {
             key: {
@@ -88,7 +89,7 @@ const gcEvent = async (m, Matrix) => {
         const buttons = [
           {
             buttonId: `.promote`,
-            buttonText: { displayText: `👤${toFancyFont("Promote Bot")}` },
+            buttonText: { displayText: `${toFancyFont("Promote Bot")}` },
             type: 1,
           },
         ];
@@ -99,14 +100,14 @@ const gcEvent = async (m, Matrix) => {
             mentionedJid: [m.sender],
           },
         };
-        return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Toxic-MD needs admin powers to run this, fam!")}`, ...messageOptions }, { quoted: m });
+        return Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb needs admin powers to run this, fam!")}`, ...messageOptions }, { quoted: m });
       }
 
       if (!senderAdmin) {
         const buttons = [
           {
             buttonId: `.promote`,
-            buttonText: { displayText: `👤${toFancyFont("Promote Self")}` },
+            buttonText: { displayText: `${toFancyFont("Promote Self")}` },
             type: 1,
           },
         ];
@@ -118,7 +119,8 @@ const gcEvent = async (m, Matrix) => {
           },
         };
         return Matrix.sendMessage(m.from, { 
-        text: `*${toFancyFont("You ain’t an admin, bruh! Step up or step out!")}`, ...messageOptions
+        image: { url: img },
+        caption: `*${toFancyFont("You ain’t an admin, bruh! Step up or step out!*")}`, ...messageOptions
        }, { quoted: {
             key: {
                 fromMe: false,
@@ -137,10 +139,10 @@ const gcEvent = async (m, Matrix) => {
       let responseMessage;
       if (text === "on") {
         config.WELCOME = true;
-        responseMessage = `*${toFancyFont("Njabulo Jb welcome & left messages ON! Newbies beware!")}`;
+        responseMessage = `*${toFancyFont("Njabulo Jb welcome & left messages ON! Newbies beware!*")}`;
       } else if (text === "off") {
         config.WELCOME = false;
-        responseMessage = `*${toFancyFont("Njabulo Jb welcome & left messages OFF! Silent mode, fam!")}`;
+        responseMessage = `*${toFancyFont("Njabulo Jb welcome & left messages OFF! Silent mode, fam!*")}`;
       } else {
         responseMessage = `*${toFancyFont("Yo, use it right, fam!")}\n*${toFancyFont("- " + prefix + "welcome on: Enable welcome & left")}\n*${toFancyFont("- " + prefix + "welcome off: Disable welcome & left")}`;
       }
@@ -148,7 +150,7 @@ const gcEvent = async (m, Matrix) => {
       const buttons = [
         {
           buttonId: `.menu`,
-          buttonText: { displayText: `📃${toFancyFont("Menu")}` },
+          buttonText: { displayText: `${toFancyFont("Menu")}` },
           type: 1,
         },
       ];
@@ -160,7 +162,8 @@ const gcEvent = async (m, Matrix) => {
         },
       };
       await Matrix.sendMessage(m.from, {
-        text: responseMessage,
+        image: { url: img },
+        caption: responseMessage,
         ...messageOptions
       }, { quoted: {
             key: {
@@ -177,7 +180,7 @@ const gcEvent = async (m, Matrix) => {
         } });
     }
   } catch (error) {
-    console.error(`❌ Welcome error: ${error.message}`);
+    console.error(`Welcome error: ${error.message}`);
     const buttons = [
       {
         buttonId: `.report`,
@@ -192,7 +195,7 @@ const gcEvent = async (m, Matrix) => {
         mentionedJid: [m.sender],
       },
     };
-    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb hit a snag, fam! Try again, we still savage!")}`, ...messageOptions }, { quoted: m });
+    await Matrix.sendMessage(m.from, { text: `*${toFancyFont("Njabulo Jb hit a snag, fam! Try again, we still savage!*")}`, ...messageOptions }, { quoted: m });
   }
 };
 
