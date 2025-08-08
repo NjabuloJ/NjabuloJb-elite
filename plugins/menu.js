@@ -157,6 +157,7 @@ const menu = async (m, Matrix) => {
 ┇• dbinary
 ┇• emojimix
 ┇• mp3
+┇• stickerqr
 ┇• scanqr
 └━══════════━┈⊷
 
