@@ -91,7 +91,16 @@ const play = async (m, Matrix) => {
       await Matrix.sendMessage(m.from, {
       image: { url: img },
        caption: `*ɴᴊᴀʙᴜʟᴏ ᴊʙ* ${toFancyFont("huntin’")} ${toFancyFont("for")} "${searchQuery}"`,
-     }, { quoted: {
+       contextInfo: {
+       forwardingScore: 999,
+       isForwarded: true,
+       forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363399999197102@newsletter',
+       newsletterName: "╭••➤®Njabulo Jb",
+       serverMessageId: 143
+       }
+       }
+      }, { quoted: {
             key: {
                 fromMe: false,
                 participant: `0@s.whatsapp.net`,
