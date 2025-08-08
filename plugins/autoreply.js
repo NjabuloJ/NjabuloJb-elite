@@ -57,6 +57,11 @@ const autostatusreplyCommand = async (m, Matrix) => {
           buttonText: { displayText: `${toFancyFont("Contact Owner")}` },
           type: 1,
         },
+        {
+          buttonId: `.channel-menu`,
+          buttonText: { displayText: `${toFancyFont("follow family")}` },
+          type: 1,
+        },
       ];
       const messageOptions = {
         viewOnce: true,
@@ -90,6 +95,11 @@ const autostatusreplyCommand = async (m, Matrix) => {
           buttonId: `.help`,
           buttonText: { displayText: `${toFancyFont("Help")}` },
           type: 1,
+          },
+        {
+          buttonId: `.channel-menu`,
+          buttonText: { displayText: `${toFancyFont("follow family")}` },
+          type: 1,
         },
       ];
       const messageOptions = {
@@ -101,7 +111,7 @@ const autostatusreplyCommand = async (m, Matrix) => {
       };
       return Matrix.sendMessage(m.from, {
      image: { url: img },
-      caption: `*${toFancyFont("*Yo, braindead, tell Njabulo Jb on or off! Don't just stare!*")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on*")}`,
+      caption: `*${toFancyFont("Yo, braindead, tell Njabulo Jb on or off! Don't just stare!*")}\n*${toFancyFont("Ex: " + prefix + "autostatusreply on*")}`,
         ...messageOptions 
       }, { quoted: {
             key: {
@@ -123,6 +133,11 @@ const autostatusreplyCommand = async (m, Matrix) => {
         {
           buttonId: `.help`,
           buttonText: { displayText: `${toFancyFont("Help")}` },
+          type: 1,
+         },
+        {
+          buttonId: `.channel-menu`,
+          buttonText: { displayText: `${toFancyFont("follow family")}` },
           type: 1,
         },
       ];
@@ -162,6 +177,11 @@ const autostatusreplyCommand = async (m, Matrix) => {
         {
           buttonId: `.report`,
           buttonText: { displayText: `${toFancyFont("Report")}` },
+          type: 1,
+         },
+        {
+          buttonId: `.channel-menu`,
+          buttonText: { displayText: `${toFancyFont("follow family")}` },
           type: 1,
         },
       ];
