@@ -275,7 +275,7 @@ const menu = async (m, Matrix) => {
 ┃◈┃• instastalk
 ┃◈┃• githubstalk
 ┃◈└───────────┈⊷
-╰──────────────┈⊷`;
+╰──────────────┈⊷
 _click with any button above to access that menu section_
 
 
