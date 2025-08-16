@@ -7,12 +7,12 @@ import {
     fetchLatestBaileysVersion,
     DisconnectReason,
     useMultiFileAuthState,
-    getContentType
 } from '@whiskeysockets/baileys';
 import { Handler, Callupdate, GroupUpdate } from './data/index.js';
 import express from 'express';
 import pino from 'pino';
 import fs from 'fs';
+import { File } from 'megajs';
 import NodeCache from 'node-cache';
 import path from 'path';
 import chalk from 'chalk';
@@ -21,12 +21,6 @@ import axios from 'axios';
 import config from './config.cjs';
 import pkg from './lib/autoreact.cjs';
 const { emojis, doReact } = pkg;
-
-// Chatbot Configuration
-let CHATBOT_ENABLED = true; // Default state
-const GROQ_API_URL = 'https://api.giftedtech.co.ke/api/ai/groq-beta?apikey=gifted';
-const chatbotCache = new NodeCache({ stdTTL: 60, checkperiod: 120 }); // Cache for 1 minute
-
 const prefix = process.env.PREFIX || config.PREFIX;
 const sessionName = "session";
 const app = express();
@@ -54,111 +48,39 @@ if (!fs.existsSync(sessionDir)) {
     fs.mkdirSync(sessionDir, { recursive: true });
 }
 
-// Chatbot Functions
-async function handleChatbotToggle(m, Matrix) {
-    const buttons = [
-        {
-            buttonId: 'enable_chatbot',
-            buttonText: { displayText: CHATBOT_ENABLED ? 'Disable |INFORMATION|' : 'Enable |INFORMATION`' },
-            type: 1
-        },
-        {
-            buttonId: 'chatbot_status',
-            buttonText: { displayText: 'Status |INFORMATION|' },
-            type: 1
-        }
-    ];
+async function downloadSessionData() {
+    console.log("Debugging SESSION_ID:", config.SESSION_ID);
 
-    await Matrix.sendMessage(m.key.remoteJid, {
-        text: `🤖 *Chatbot Status:* ${CHATBOT_ENABLED ? '🟢 ACTIVE' : '🔴 DISABLED'}\n\n_Powered by Njabulo Jb AI_`,
-        buttons,
-        footer: config.BOT_NAME || 'Mercedes'
-       }, { quoted: {
-            key: {
-                fromMe: false,
-                participant: `0@s.whatsapp.net`,
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                contactMessage: {
-                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
-                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
-                }
-            }
-        } });
-        }
-async function handleChatbotResponse(m, Matrix) {
+    if (!config.SESSION_ID) {
+        console.error('❌ Please add your session to SESSION_ID env !!');
+        return false;
+    }
+
+    const sessdata = config.SESSION_ID.split("IK~")[1];
+
+    if (!sessdata || !sessdata.includes("#")) {
+        console.error('❌ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
+        return false;
+    }
+
+    const [fileID, decryptKey] = sessdata.split("#");
+
     try {
-        const messageText = m.message?.conversation || 
-                          m.message?.extendedTextMessage?.text || 
-                          '';
-        
-        if (!messageText || messageText.startsWith(prefix)) return;
+        console.log("🔄 Downloading Session...");
+        const file = File.fromURL(`https://mega.nz/file/${fileID}#${decryptKey}`);
 
-        // Check cache to avoid duplicate processing
-        if (chatbotCache.has(m.key.id)) return;
-        chatbotCache.set(m.key.id, true);
+        const data = await new Promise((resolve, reject) => {
+            file.download((err, data) => {
+                if (err) reject(err);
+                else resolve(data);
+            });
+        });
 
-        await Matrix.sendPresenceUpdate('composing', m.key.remoteJid);
-        
-        const response = await axios.get(`${GROQ_API_URL}&q=${encodeURIComponent(messageText)}`);
-        const aiResponse = response.data?.result || "I couldn't process that request.";
-
-        await Matrix.sendMessage(m.key.remoteJid, {
-        text: aiResponse,  
-        contextInfo: {
-         mentionedJid: [m.participant || m.key.participant],
-         forwardingScore: 999,
-         isForwarded: true,
-         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363399999197102@newsletter',
-         newsletterName: "╭••➤®Njabulo Jb",
-         serverMessageId: 143
-          }
-         }
-        }, { quoted: {
-            key: {
-                fromMe: false,
-                participant: `0@s.whatsapp.net`,
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                contactMessage: {
-                    displayName: "Njabulo Jb AI",
-                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
-                }
-            }
-        } });
-
+        await fs.promises.writeFile(credsPath, data);
+        console.log("🔒 Session Successfully Loaded !!");
+        return true;
     } catch (error) {
-        console.error('Chatbot error:', error);
-        // Optionally send an error message
-        // await Matrix.sendMessage(m.key.remoteJid, { text: "⚠️ Error processing your message" });
-    }
-}
-
-async function authentification() {
-    try {
-        const session = process.env.SESSION_ID || config.SESSION_ID;
-        
-        if (!session) {
-            console.log("No session provided, QR code will be used");
-            return false;
-        }
-
-        if (!fs.existsSync(credsPath)) {
-            console.log("Creating session file...");
-            await fs.promises.writeFile(credsPath, atob(session), "utf8");
-            console.log("🔒 Session file created successfully!");
-            return true;
-        }
-        else if (fs.existsSync(credsPath)) {
-            console.log("🔒 Using existing session file");
-            return true;
-        }
-    }
-    catch (e) {
-        console.log("❌ Session Invalid: " + e);
+        console.error('❌ Failed to download session data:', error);
         return false;
     }
 }
@@ -167,106 +89,59 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`🤖 Njabulo Jb using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(`🤖 JAWAD-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
         
         const Matrix = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: useQR,
-            browser: ["Njabulo-Jb", "safari", "3.3"],
+            browser: ["JAWAD-MD", "safari", "3.3"],
             auth: state,
             getMessage: async (key) => {
-                return { conversation: "Njabulo Jb whatsapp user bot" };
+                if (store) {
+                    const msg = await store.loadMessage(key.remoteJid, key.id);
+                    return msg.message || undefined;
+                }
+                return { conversation: "JAWAD-MD whatsapp user bot" };
             }
         });
 
-        Matrix.ev.on('connection.update', (update) => {
-            const { connection, lastDisconnect } = update;
-            if (connection === 'close') {
-                if (lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut) {
-                    start();
-                }
-            } else if (connection === 'open') {
-                if (initialConnection) {
-                    console.log(chalk.green("Connected Successfully NjabuloJb-elite 🤍"));
-                    Matrix.sendMessage(Matrix.user.id, { 
-                    image: { url: "https://files.catbox.moe/ylx2x4.jpg" }, 
-                    caption: `┏──────────────⊷
-┊ ɴᴀᴍᴇ : *ɴנɐႦυℓσ נႦ is online*
+Matrix.ev.on('connection.update', (update) => {
+    const { connection, lastDisconnect } = update;
+    if (connection === 'close') {
+        if (lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut) {
+            start();
+        }
+    } else if (connection === 'open') {
+        if (initialConnection) {
+            console.log(chalk.green("Connected Successfully NjabuloJb-elite 🤍"));
+            Matrix.sendMessage(Matrix.user.id, { 
+                image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
+                caption: `┏──────────────⊷
+┊ ɴᴀᴍᴇ :  *NנɐႦυℓσ נႦ*
+┊ ᴠᴇʀsɪᴏɴ : *.0.0.12 ʙᴇᴛᴀ*
 ┗──────────────⊷
-┏ *【 ᴅᴇᴠɪᴄᴇ ᴏɴʟɪɴᴇ 】⇳︎*
-- . ① *ᴘɪɴɢ*
-- . ② *ᴍᴇɴᴜ*
-- . ③ *ᴀʟɪᴠᴇ*
-- . ④ *ᴜᴘᴅᴀᴛᴇ*
-- . ⑤ *ᴜᴘᴛɪᴍᴇ*
+┏           *【 device online 】⇳︎*
+- . ①  *ping*
+- . ②  *ᴍᴇɴᴜ*
+- . ③  *alive*
+- . ④  *update*
+- . ⑤  *uptime*
 ┗
 ┏──────────────⊷
-┊ *[ɴᴊᴀʙᴜʟᴏ ᴊʙ ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʟɪɴᴋᴇᴅ ᴅᴇᴠɪᴄᴇ]*
-┗──────────────⊷`,
-               contextInfo: {
-               forwardingScore: 999,
-               isForwarded: true,
-              forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363399999197102@newsletter',
-              newsletterName: "╭••➤®Njabulo Jb",
-              serverMessageId: 143
-              }
-            }
-            }, { quoted: {
-            key: {
-                fromMe: false,
-                participant: `0@s.whatsapp.net`,
-                remoteJid: "status@broadcast"
-            },
-            message: {
-                contactMessage: {
-                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
-                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Njabulo-Jb;BOT;;;\nFN:Njabulo-Jb\nitem1.TEL;waid=254700000000:+254 700 000000\nitem1.X-ABLabel:Bot\nEND:VCARD`
-                }
-            }
-        } });
-                    initialConnection = false;
-                } else {
-                    console.log(chalk.blue("♻️ Connection reestablished after restart."));
-                }
-            }
-        });
+┊ *[Njabulo Jb connected]*
+┗──────────────⊷`
+            });
+            initialConnection = false;
+        } else {
+            console.log(chalk.blue("♻️ Connection reestablished after restart."));
+        }
+    }
+});
         
         Matrix.ev.on('creds.update', saveCreds);
 
-        // Enhanced messages.upsert handler
-        Matrix.ev.on("messages.upsert", async (chatUpdate) => {
-            const m = chatUpdate.messages[0];
-            if (!m.message) return;
-
-            // Handle chatbot toggle command
-            if (m.message.conversation?.toLowerCase() === prefix + 'chatbot') {
-                await handleChatbotToggle(m, Matrix);
-                return;
-            }
-
-            // Handle button responses
-            if (m.message.buttonsResponseMessage) {
-                const selected = m.message.buttonsResponseMessage.selectedButtonId;
-                if (selected === 'enable_chatbot') {
-                    CHATBOT_ENABLED = !CHATBOT_ENABLED;
-                    await Matrix.sendMessage(m.key.remoteJid, { 
-                        text: `Chatbot ${CHATBOT_ENABLED ? 'ENABLED ✅' : 'DISABLED ❌'}` 
-                    });
-                    return;
-                }
-            }
-
-            // Process chatbot responses if enabled
-            if (CHATBOT_ENABLED && !m.key.fromMe) {
-                await handleChatbotResponse(m, Matrix);
-            }
-
-            // Existing handlers
-            await Handler(chatUpdate, Matrix, logger);
-        });
-
+        Matrix.ev.on("messages.upsert", async chatUpdate => await Handler(chatUpdate, Matrix, logger));
         Matrix.ev.on("call", async (json) => await Callupdate(json, Matrix));
         Matrix.ev.on("group-participants.update", async (messag) => await GroupUpdate(Matrix, messag));
 
@@ -276,11 +151,12 @@ async function start() {
             Matrix.public = false;
         }
 
-        // Auto Reaction to chats
         Matrix.ev.on('messages.upsert', async (chatUpdate) => {
             try {
                 const mek = chatUpdate.messages[0];
+                console.log(mek);
                 if (!mek.key.fromMe && config.AUTO_REACT) {
+                    console.log(mek);
                     if (mek.message) {
                         const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
                         await doReact(randomEmoji, mek, Matrix);
@@ -290,59 +166,26 @@ async function start() {
                 console.error('Error during auto reaction:', err);
             }
         });
-
-        // Auto Like Status and Mark as Viewed
+        
         Matrix.ev.on('messages.upsert', async (chatUpdate) => {
-            try {
-                const mek = chatUpdate.messages[0];
-                if (!mek || !mek.message) return;
-
-                const contentType = getContentType(mek.message);
-                mek.message = (contentType === 'ephemeralMessage')
-                    ? mek.message.ephemeralMessage.message
-                    : mek.message;
-
-                if (mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_REACT === "true") {
-                    const jawadlike = await Matrix.decodeJid(Matrix.user.id);
-                    const emojiList = ['❤️', '💸', '😇', '🍂', '💥', '💯', '🔥', '💫', '💎', '💗', '🤍', '🖤', '👀', '🙌', '🙆', '🚩', '🥰', '💐', '😎', '🤎', '✅', '🫀', '🧡', '😁', '😄', '🌸', '🕊️', '🌷', '⛅', '🌟', '🗿', '💜', '💙', '🌝', '💚'];
-                    const randomEmoji = emojiList[Math.floor(Math.random() * emojiList.length)];
-
-                    await Matrix.readMessages([mek.key]);
-                    
-                    await Matrix.sendMessage(mek.key.remoteJid, {
-                        react: {
-                            text: randomEmoji,
-                            key: mek.key,
-                        }
-                    }, { statusJidList: [mek.key.participant, jawadlike] });
-
-                    console.log(`✓ Viewed and reacted to status with: ${randomEmoji}`);
-                }
-            } catch (err) {
-                console.error("✗ Auto Like Status Error:", err);
+    try {
+        const mek = chatUpdate.messages[0];
+        const fromJid = mek.key.participant || mek.key.remoteJid;
+        if (!mek || !mek.message) return;
+        if (mek.key.fromMe) return;
+        if (mek.message?.protocolMessage || mek.message?.ephemeralMessage || mek.message?.reactionMessage) return; 
+        if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_SEEN) {
+            await Matrix.readMessages([mek.key]);
+            
+            if (config.AUTO_STATUS_REPLY) {
+                const customMessage = config.STATUS_READ_MSG || '✅ Auto Status Seen Bot By JAWAD-MD';
+                await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
             }
-        });
-
-        // Status Seen and Reply
-        Matrix.ev.on('messages.upsert', async (chatUpdate) => {
-            try {
-                const mek = chatUpdate.messages[0];
-                const fromJid = mek.key.participant || mek.key.remoteJid;
-                if (!mek || !mek.message) return;
-                if (mek.key.fromMe) return;
-                if (mek.message?.protocolMessage || mek.message?.ephemeralMessage || mek.message?.reactionMessage) return; 
-                if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_SEEN) {
-                    await Matrix.readMessages([mek.key]);
-                    
-                    if (config.AUTO_STATUS_REPLY) {
-                        const customMessage = config.STATUS_READ_MSG || '👍';
-                        await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
-                    }
-                }
-            } catch (err) {
-                console.error('Error handling messages.upsert event:', err);
-            }
-        });
+        }
+    } catch (err) {
+        console.error('Error handling messages.upsert event:', err);
+    }
+});
 
     } catch (error) {
         console.error('Critical Error:', error);
@@ -351,16 +194,19 @@ async function start() {
 }
 
 async function init() {
-    const sessionExists = fs.existsSync(credsPath);
-    const sessionAvailable = await authentification();
-    
-    if (sessionExists || sessionAvailable) {
-        console.log("🔒 Session available, starting bot...");
+    if (fs.existsSync(credsPath)) {
+        console.log("🔒 Session file found, proceeding without QR code.");
         await start();
     } else {
-        console.log("No session available, QR code will be printed for authentication.");
-        useQR = true;
-        await start();
+        const sessionDownloaded = await downloadSessionData();
+        if (sessionDownloaded) {
+            console.log("🔒 Session downloaded, starting bot.");
+            await start();
+        } else {
+            console.log("No session found or downloaded, QR code will be printed for authentication.");
+            useQR = true;
+            await start();
+        }
     }
 }
 
@@ -373,3 +219,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
