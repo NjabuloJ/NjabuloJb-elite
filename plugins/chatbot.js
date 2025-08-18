@@ -55,7 +55,6 @@ const chatbotHandler = async (m, Matrix) => {
     
     // Send the response
     await Matrix.sendMessage(m.key.remoteJid, { 
-      buttons,
       text: aiResponse,
       contextInfo: {
        mentionedJid: [m.participant || m.key.participant],
