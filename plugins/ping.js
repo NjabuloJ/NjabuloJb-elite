@@ -49,16 +49,50 @@ const ping = async (m, Matrix) => {
     const end = new Date().getTime();
     const responseTime = (end - start) / 1000;
     const text = `*${toFancyFont("Njabulo Jb")}* : ${responseTime.toFixed(2)} s`;
-    const buttons = [
+   const buttons = [
       {
-        buttonId: `.alive`,
-        buttonText: { displayText: `📡${toFancyFont("Alive")}` },
-        type: 1,
-      },
-      {
-        buttonId: `.menu`,
-        buttonText: { displayText: `🧾${toFancyFont("Menu")}` },
-        type: 1,
+        buttonId: "action",
+        buttonText: { displayText: "📂 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ" },
+        type: 4,
+        nativeFlowInfo: {
+          name: "single_select",
+          paramsJson: JSON.stringify({
+            title: "📂 ᴄʟɪᴄᴋ ʜᴇʀᴇ",
+            sections: [
+              {
+                title: "📁 ᴍᴇʀᴄᴇᴅᴇs",
+                highlight_label: "",
+                rows: [
+                  {
+                    title: "📂 ᴍᴇɴᴜ",
+                    description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
+                    id: `${prefix}menu`,
+                  },
+                  {
+                    title: "👑 ᴏᴡɴᴇʀ",
+                    description: "ᴄᴏɴᴛᴀᴄᴛ ʙᴏᴛ ᴏᴡɴᴇʀ",
+                    id: `${prefix}owner`,
+                  },
+                  {
+                    title: "📶 ᴘɪɴɢ",
+                    description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
+                    id: `${prefix}ping`,
+                  },
+                  {
+                    title: "🖥️ ꜱʏꜱᴛᴇᴍ",
+                    description: "ꜱʏꜱᴛᴇᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ",
+                    id: `${prefix}system`,
+                  },
+                  {
+                    title: "🛠️ ʀᴇᴘᴏ",
+                    description: "ɢɪᴛʜᴜʙ ʀᴇᴘᴏꜱɪᴛᴏʀʏ",
+                    id: `${prefix}repo`,
+                  },
+                ],
+              },
+            ],
+          }),
+        },
       },
     ];
     const messageOptions = {
