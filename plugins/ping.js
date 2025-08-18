@@ -111,11 +111,6 @@ const ping = async (m, Matrix) => {
                 participant: `0@s.whatsapp.net`,
                 remoteJid: "status@broadcast"
             },
-            message: {
-                contactMessage: {
-                    displayName: "✆︎NנɐႦυℓσ נႦ verified",
-                    }
-            }
         } });
      }
   };
