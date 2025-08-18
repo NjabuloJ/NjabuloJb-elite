@@ -5,7 +5,7 @@ const { generateWAMessageFromContent, proto } = pkg;
 
 // Groq API configuration
 const GROQ_API_KEY = 'gifted'; // Replace with your actual API key if different
-const GROQ_API_URL = 'https://api.giftedtech.co.ke/api/ai/groq-beta';
+const GROQ_API_URL = 'https://api.giftedtech.co.ke/api/ai/gpt4';
 
 // Response cache to avoid duplicate processing
 const messageCache = new Set();
