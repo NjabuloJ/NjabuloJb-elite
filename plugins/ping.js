@@ -22,16 +22,16 @@ const ping = async (m, Matrix) => {
         nativeFlowInfo: {
           name: "single_select",
           paramsJson: JSON.stringify({
-            title: "📂 ᴄʟɪᴄᴋ ʜᴇʀᴇ",
+            title: "📂 𝗧𝗮𝗽 𝗛𝗲𝗿𝗲 𝗙𝗿𝗶𝗲𝗻𝗱",
             sections: [
               {
-                title: "📁 ᴍᴇʀᴄᴇᴅᴇs",
+                title: "📁 𝗡𝗷𝗮𝗯𝘂𝗹𝗼 𝗝𝗯 𝗯𝘂𝘁𝘁𝗼𝗻 𝗢𝗻𝗹𝗶𝗻𝗲",
                 highlight_label: "",
                 rows: [
                   {
                     title: "📂 ᴍᴇɴᴜ",
                     description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
-                    id: `${prefix}menu`,
+                    id: `.menu`,
                   },
                   {
                     title: "👑 ᴏᴡɴᴇʀ",
@@ -41,7 +41,7 @@ const ping = async (m, Matrix) => {
                   {
                     title: "📶 ᴘɪɴɢ",
                     description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
-                    id: `${prefix}ping`,
+                    id: `.ping`,
                   },
                   {
                     title: "🖥️ ꜱʏꜱᴛᴇᴍ",
