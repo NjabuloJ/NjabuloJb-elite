@@ -97,15 +97,10 @@ const chatbotHandler = async (m, Matrix) => {
         },
       },
     ];
-    const messageOptions = {
-      viewOnce: true,
-      buttons,
-      contextInfo: {
-        mentionedJid: [m.sender],
-      },
-    };
+    
     // Send the response
     await Matrix.sendMessage(m.key.remoteJid, { 
+      buttons,
       text: aiResponse,
       contextInfo: {
        mentionedJid: [m.participant || m.key.participant],
