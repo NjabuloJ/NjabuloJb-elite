@@ -51,52 +51,7 @@ const chatbotHandler = async (m, Matrix) => {
 
     // Get response from Groq API
     const aiResponse = await getGroqResponse(messageText);
-   const buttons = [
-      {
-        buttonId: "action",
-        buttonText: { displayText: "📂 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ" },
-        type: 4,
-        nativeFlowInfo: {
-          name: "single_select",
-          paramsJson: JSON.stringify({
-            title: "|Click Here|",
-            sections: [
-              {
-                title: "📁 ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ",
-                highlight_label: "",
-                rows: [
-                  {
-                    title: "📂 ᴍᴇɴᴜ",
-                    description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
-                    id: `.menu`,
-                  },
-                  {
-                    title: "👑 ᴏᴡɴᴇʀ",
-                    description: "ᴄᴏɴᴛᴀᴄᴛ ʙᴏᴛ ᴏᴡɴᴇʀ",
-                    id: `${prefix}owner`,
-                  },
-                  {
-                    title: "📶 ᴘɪɴɢ",
-                    description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
-                    id: `.ping`,
-                  },
-                  {
-                    title: "🖥️ ꜱʏꜱᴛᴇᴍ",
-                    description: "ꜱʏꜱᴛᴇᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ",
-                    id: `${prefix}system`,
-                  },
-                  {
-                    title: "🛠️ ʀᴇᴘᴏ",
-                    description: "ɢɪᴛʜᴜʙ ʀᴇᴘᴏꜱɪᴛᴏʀʏ",
-                    id: `${prefix}repo`,
-                  },
-                ],
-              },
-            ],
-          }),
-        },
-      },
-    ];
+
     
     // Send the response
     await Matrix.sendMessage(m.key.remoteJid, { 
