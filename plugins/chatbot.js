@@ -59,16 +59,16 @@ const chatbotHandler = async (m, Matrix) => {
         nativeFlowInfo: {
           name: "single_select",
           paramsJson: JSON.stringify({
-            title: "📂 ᴄʟɪᴄᴋ ʜᴇʀᴇ",
+            title: "|Click Here|",
             sections: [
               {
-                title: "📁 ᴍᴇʀᴄᴇᴅᴇs",
+                title: "📁 ✆︎Pσɯҽɾҽԃ Ⴆყ NנɐႦυℓσ נႦ",
                 highlight_label: "",
                 rows: [
                   {
                     title: "📂 ᴍᴇɴᴜ",
                     description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
-                    id: `${prefix}menu`,
+                    id: `.menu`,
                   },
                   {
                     title: "👑 ᴏᴡɴᴇʀ",
@@ -78,7 +78,7 @@ const chatbotHandler = async (m, Matrix) => {
                   {
                     title: "📶 ᴘɪɴɢ",
                     description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
-                    id: `${prefix}ping`,
+                    id: `.ping`,
                   },
                   {
                     title: "🖥️ ꜱʏꜱᴛᴇᴍ",
