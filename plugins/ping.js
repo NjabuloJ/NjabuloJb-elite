@@ -29,26 +29,31 @@ const ping = async (m, Matrix) => {
                 highlight_label: "",
                 rows: [
                   {
+                    header:"",
                     title: "📂 ᴍᴇɴᴜ",
                     description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
                     id: `.menu`,
                   },
                   {
+                    header:"",
                     title: "👑 ᴏᴡɴᴇʀ",
                     description: "ᴄᴏɴᴛᴀᴄᴛ ʙᴏᴛ ᴏᴡɴᴇʀ",
                     id: `${prefix}owner`,
                   },
                   {
+                    header:"",
                     title: "📶 ᴘɪɴɢ",
                     description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
                     id: `.ping`,
                   },
                   {
+                    header:"",
                     title: "🖥️ ꜱʏꜱᴛᴇᴍ",
                     description: "ꜱʏꜱᴛᴇᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ",
                     id: `${prefix}system`,
                   },
                   {
+                    header:"",
                     title: "🛠️ ʀᴇᴘᴏ",
                     description: "ɢɪᴛʜᴜʙ ʀᴇᴘᴏꜱɪᴛᴏʀʏ",
                     id: `${prefix}repo`,
