@@ -30,19 +30,19 @@ const ping = async (m, Matrix) => {
                 rows: [
                   {
                     header:"",
-                    title: "📂 ᴍᴇɴᴜ",
+                    title: ".menu 📂",
                     description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
                     id: `.menu`,
                   },
                   {
                     header:"",
-                    title: "👑 ᴏᴡɴᴇʀ",
+                    title: ".owner 👑",
                     description: "ᴄᴏɴᴛᴀᴄᴛ ʙᴏᴛ ᴏᴡɴᴇʀ",
                     id: `${prefix}owner`,
                   },
                   {
                     header:"",
-                    title: "📶 ᴘɪɴɢ",
+                    title: ".ping 📶",
                     description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
                     id: `.ping`,
                   },
@@ -54,7 +54,7 @@ const ping = async (m, Matrix) => {
                   },
                   {
                     header:"",
-                    title: "🛠️ ʀᴇᴘᴏ",
+                    title: ".repo 🛠️",
                     description: "ɢɪᴛʜᴜʙ ʀᴇᴘᴏꜱɪᴛᴏʀʏ",
                     id: `${prefix}repo`,
                   },
