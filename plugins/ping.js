@@ -12,6 +12,7 @@ const ping = async (m, Matrix) => {
     await m.React("📡");
     const end = new Date().getTime();
     const responseTime = (end - start) / 1000;
+     const imageUrl = "https://files.catbox.moe/173jef.jpeg";
     const text = `*Njabulo Jb* : ${responseTime.toFixed(2)} s`;
    const buttons = [
       {
@@ -67,9 +68,11 @@ const ping = async (m, Matrix) => {
       },
     };
     await Matrix.sendMessage(m.from,{ 
-      text:text, 
+      image: { url: imageUrl },
+      caption:text, 
       ...messageOptions 
    }, { quoted: m });
+  }
   };
                              
 export default ping;
