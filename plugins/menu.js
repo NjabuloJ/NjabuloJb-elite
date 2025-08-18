@@ -104,35 +104,60 @@ const menu = async (m, Matrix) => {
 ┗──────────────⊷
 `;
 
-      const messageOptions = {
-        viewOnce: true,
-        buttons: [
-          { buttonId: `${prefix}download-menu`, buttonText: { displayText: `① Download` }, type: 1 },
-          { buttonId: `${prefix}group-menu`, buttonText: { displayText: `② Group` }, type: 1 },
-          { buttonId: `${prefix}fun-menu`, buttonText: { displayText: `③ Fun` }, type: 1 },
-          { buttonId: `${prefix}owner-menu`, buttonText: { displayText: `④ Owner` }, type: 1 },
-          { buttonId: `${prefix}ai-menu`, buttonText: { displayText: `⑤ AI` }, type: 1 },
-          { buttonId: `${prefix}anime-menu`, buttonText: { displayText: `⑥ Anime` }, type: 1 },
-          { buttonId: `${prefix}converter-menu`, buttonText: { displayText: `⑦ Converter` }, type: 1 },
-          { buttonId: `${prefix}other-menu`, buttonText: { displayText: `⑧ Other` }, type: 1 },
-          { buttonId: `${prefix}reactions-menu`, buttonText: { displayText: `⑨ Reactions` }, type: 1 },
-          { buttonId: `${prefix}main-menu`, buttonText: { displayText: `⑩ Main` }, type: 1 }
-        ],
-        contextInfo: {
-          mentionedJid: [m.sender],
-          forwardingScore: 999,
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363399999197102@newsletter',
-            newsletterName: "╭••➤®Njabulo Jb",
-            serverMessageId: 143
-          },
+      const buttons = [
+      {
+        buttonId: "action",
+        buttonText: { displayText: "📂 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ" },
+        type: 4,
+        nativeFlowInfo: {
+          name: "single_select",
+          paramsJson: JSON.stringify({
+            title: "📂 ᴄʟɪᴄᴋ ʜᴇʀᴇ",
+            sections: [
+              {
+                title: "📁 ᴍᴇʀᴄᴇᴅᴇs",
+                highlight_label: "",
+                rows: [
+                  {
+                    title: "📂 ᴍᴇɴᴜ",
+                    description: "ᴏᴘᴇɴ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ",
+                    id: `${prefix}menu`,
+                  },
+                  {
+                    title: "👑 ᴏᴡɴᴇʀ",
+                    description: "ᴄᴏɴᴛᴀᴄᴛ ʙᴏᴛ ᴏᴡɴᴇʀ",
+                    id: `${prefix}owner`,
+                  },
+                  {
+                    title: "📶 ᴘɪɴɢ",
+                    description: "ᴛᴇꜱᴛ ʙᴏᴛ ꜱᴘᴇᴇᴅ",
+                    id: `${prefix}ping`,
+                  },
+                  {
+                    title: "🖥️ ꜱʏꜱᴛᴇᴍ",
+                    description: "ꜱʏꜱᴛᴇᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ",
+                    id: `${prefix}system`,
+                  },
+                  {
+                    title: "🛠️ ʀᴇᴘᴏ",
+                    description: "ɢɪᴛʜᴜʙ ʀᴇᴘᴏꜱɪᴛᴏʀʏ",
+                    id: `${prefix}repo`,
+                  },
+                ],
+              },
+            ],
+          }),
         },
-      };
+      },
+    ];
+
 
       // Send menu with or without image
       if (menuImage) {
         await Matrix.sendMessage(m.from, { 
+          buttons,
+        headerType: 1,
+        viewOnce: true,
           image: menuImage,
           caption: mainMenu,
           ...messageOptions
@@ -152,7 +177,7 @@ const menu = async (m, Matrix) => {
           }
         });
       } else {
-        await Matrix.sendMessage(m.from, { text: mainMenu, ...messageOptions }, { quoted: m });
+        await Matrix.sendMessage(m.from, { text: mainMenu, }, { quoted: m });
       }
 
       // Send audio as a voice note
