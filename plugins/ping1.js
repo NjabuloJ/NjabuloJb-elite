@@ -1,11 +1,15 @@
 import config from "../config.cjs";
+import pkg from "@whiskeysockets/baileys";
+const { generateWAMessageFromContent, proto } = pkg;
 
 const alive = async (m, Matrix) => {
   try {
     const prefix = config.Prefix || config.PREFIX || ".";
     const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).trim().split(" ")[0].toLowerCase() : "";
 
-    if (!["alive", "uptime", "runtime"].includes(cmd)) return;
+    if (!["alives", "uptimebot", "runtjime"].includes(cmd)) return;
+
+    const channelLink = "https://example.com/your-channel-link"; // Replace with your channel link
 
     const listButton = {
       buttonText: "Select an option",
@@ -27,6 +31,11 @@ const alive = async (m, Matrix) => {
               title: "Help",
               rowId: "help",
               description: "Get help with bot commands",
+            },
+            {
+              title: "Join Channel",
+              rowId: "join",
+              description: "Join our channel",
             },
           ],
         },
@@ -60,7 +69,9 @@ const alive = async (m, Matrix) => {
           const timeString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
           await Matrix.sendMessage(m.from, { text: `Toxic-MD is alive for ${timeString}` });
         } else if (selectedOption === "help") {
-          await Matrix.sendMessage(m.from, { text: "Available commands: ping, alive, help" });
+          await Matrix.sendMessage(m.from, { text: "Available commands: ping, alive, help, join" });
+        } else if (selectedOption === "join") {
+          await Matrix.sendMessage(m.from, { text: `Join our channel: ${channelLink}` });
         }
       }
     });
